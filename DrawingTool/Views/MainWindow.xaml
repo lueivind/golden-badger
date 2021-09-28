@@ -1,0 +1,85 @@
+﻿<Window x:Class="DrawingTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DrawingTool"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainViewModel, IsDesignTimeCreatable=True}"
+        Title="MainWindow" Height="500" Width="1200">
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <!--Pages-->
+        <Grid Grid.Column="0" Margin="20">
+            <ListView x:Name="ListViewPages" ItemsSource="{Binding Pages}" Background="LightGreen" SelectionChanged="ListViewPages_SelectionChanged">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type local:PageViewModel}">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"/>
+                            <Image Height="200" Source="{Binding Image}"/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+
+        <Grid Grid.Column="1"  Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+   
+
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <Button Command="{Binding CurrentPage.AddStructureClassCommand}" Content="Add"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ListView ItemsSource="{Binding CurrentPage.StructureClasses}" Background="#deedde" SelectionChanged="ListView_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:StructureClassViewModel}">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Name}"/>
+                                    <Border Height="20" Width="20" Background="{Binding ColorBrush}"></Border>
+                                </StackPanel>
+                                <ListView ItemsSource="{Binding Graphics}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type local:GraphicViewModel}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Text="{Binding}"/>
+
+                                      
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                            
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+      
+        </Grid>
+
+  
+        <Grid Grid.Column="2" Background="Black">
+            <Border Margin="20" Background="#343434" Padding="20">
+                <ContentPresenter Content="{Binding CurrentPage.PageCanvas}"/>
+
+            </Border>
+        </Grid>
+        
+
+    </Grid>
+</Window>
