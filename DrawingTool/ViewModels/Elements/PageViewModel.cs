@@ -34,10 +34,16 @@ namespace DrawingTool
             // lists
             DefaultBrushes = new List<Brush>();
 
+            // canvas
+            PageCanvas = new PageCanvas(this);
+
             // commands
             AddStructureClassCommand = new RelayCommand(AddStructureClass);
-
-            PageCanvas = new PageCanvas(this);
+            CanvasResetCommand = new RelayCommand(PageCanvas.Reset);
+            CanvasFitCommand = new RelayCommand(PageCanvas.Fit);
+            CanvasCenterCommand = new RelayCommand(PageCanvas.Center);
+            CanvasZoomInCommand = new RelayCommand(PageCanvas.ZoomIn);
+            CanvasZoomOutCommand = new RelayCommand(PageCanvas.ZoomOut);
 
             // dummy sctructures classes
             AddStructureClass();
@@ -81,6 +87,32 @@ namespace DrawingTool
         /// </summary>
         public ICommand AddStructureClassCommand { get; set; }
 
+
+        /// <summary>
+        /// Command to reset page canvas view.
+        /// </summary>
+        public ICommand CanvasResetCommand { get; set; }
+
+        /// <summary>
+        /// Command to make page canvas view fit.
+        /// </summary>
+        public ICommand CanvasFitCommand { get; set; }
+
+        /// <summary>
+        /// Command to center the canvas.
+        /// </summary>
+        public ICommand CanvasCenterCommand { get; set; }
+
+        /// <summary>
+        /// Command to zoom the canvas out.
+        /// </summary>
+        public ICommand CanvasZoomInCommand { get; set; }
+
+        /// <summary>
+        /// Command to zoom the canvas in.
+        /// </summary>
+        public ICommand CanvasZoomOutCommand { get; set; }
+
         #endregion
 
         #region Helpers
@@ -119,6 +151,9 @@ namespace DrawingTool
         {
             return new List<Brush>()
             {
+                Brushes.Red,
+                Brushes.Blue,
+                Brushes.Green,
                 Brushes.AliceBlue,
                 Brushes.PaleGoldenrod,
                 Brushes.Orchid,
@@ -180,7 +215,6 @@ namespace DrawingTool
                 Brushes.PowderBlue,
                 Brushes.Purple,
                 Brushes.Silver,
-                Brushes.Red,
                 Brushes.RoyalBlue,
                 Brushes.SaddleBrown,
                 Brushes.Salmon,
@@ -216,7 +250,6 @@ namespace DrawingTool
                 Brushes.Bisque,
                 Brushes.DarkSalmon,
                 Brushes.Black,
-                Brushes.Blue,
                 Brushes.BlueViolet,
                 Brushes.Brown,
                 Brushes.BurlyWood,
@@ -250,7 +283,6 @@ namespace DrawingTool
                 Brushes.DeepSkyBlue,
                 Brushes.DimGray,
                 Brushes.DodgerBlue,
-                Brushes.Green,
                 Brushes.Firebrick,
                 Brushes.ForestGreen,
                 Brushes.Fuchsia,

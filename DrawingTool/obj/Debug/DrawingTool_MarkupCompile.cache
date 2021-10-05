@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\App.xaml
-2-769695930
+3-881894792
 
-12-1863923283
+13-682817469
 17-1323951755
-Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
+Views\Controls\GraphicListItemControl.xaml;Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
 
 False
 

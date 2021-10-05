@@ -39,7 +39,7 @@ namespace DrawingTool
         ScaleTransform canvasScaleTransform;
 
         private double zoomIncrement = 0.05;
-
+       
         #endregion
 
         #region Constructor
@@ -62,6 +62,8 @@ namespace DrawingTool
             group.Children.Add(canvasTranslateTransform);
             group.Children.Add(canvasScaleTransform);
             pageCanvas.RenderTransform = group;
+            canvasScaleTransform.CenterX = pageCanvas.Width / 2;
+            canvasScaleTransform.CenterY = pageCanvas.Height / 2;
         }
 
         #endregion
@@ -205,10 +207,82 @@ namespace DrawingTool
 
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Reset canvas view.
+        /// </summary>
+        public void Reset()
+        {
+            // reset translation
+            canvasTranslateTransform.X = 0;
+            canvasTranslateTransform.Y = 0;
+
+            // reset scale
+            canvasScaleTransform.CenterX = pageCanvas.Width / 2;
+            canvasScaleTransform.CenterY = pageCanvas.Height / 2;
+            canvasScaleTransform.ScaleX = 1;
+            canvasScaleTransform.ScaleY = 1;
+         
+        }
+
+        /// <summary>
+        /// Fit whole image in canvas view.
+        /// </summary>
+        public void Fit()
+        {
+
+            // grid dimensions
+            var gridHeight = pageGrid.ActualHeight;
+            var gridWidth = pageGrid.ActualWidth;
+
+            // image dimensions
+            var imageHeight = image.ActualHeight;
+            var imageWidth = image.ActualWidth;
+
+            // container width divided by image width
+            var heightRelation = gridHeight / imageHeight;
+            // container height divived by image height
+            var widthRelation = gridWidth / imageWidth;
+
+            // scale to the lowest value
+            if(heightRelation > widthRelation)
+            {
+                // scale to width
+                canvasScaleTransform.ScaleY = widthRelation;
+                canvasScaleTransform.ScaleX = widthRelation;
+            }
+            else
+            {
+                // scale to height
+                canvasScaleTransform.ScaleY = heightRelation;
+                canvasScaleTransform.ScaleX = heightRelation;
+
+            }
+
+            // center image
+            Center();
+        }
+
+        /// <summary>
+        /// Center canvas in parent container.
+        /// </summary>
+        public void Center()
+        {
+            // set scale center to center of canvas
+            canvasScaleTransform.CenterX = pageCanvas.Width / 2;
+            canvasScaleTransform.CenterY = pageCanvas.Height / 2;
+            // reset translation to reset to center alignment
+            canvasTranslateTransform.X = 0;
+            canvasTranslateTransform.Y = 0;
+        }
+
         /// <summary>
         /// Zoom in on canvas.
         /// </summary>
-        private void ZoomIn()
+        public void ZoomIn()
         {
             canvasScaleTransform.ScaleX += zoomIncrement;
             canvasScaleTransform.ScaleY += zoomIncrement;
@@ -217,7 +291,7 @@ namespace DrawingTool
         /// <summary>
         /// Zoom out on canvas.
         /// </summary>
-        private void ZoomOut()
+        public void ZoomOut()
         {
             canvasScaleTransform.ScaleX -= zoomIncrement;
             canvasScaleTransform.ScaleY -= zoomIncrement;

@@ -9,12 +9,14 @@
         Title="MainWindow" Height="500" Width="1200">
     <Grid Background="Gray">
         <Grid.ColumnDefinitions>
+            <!--Page List-->
             <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+            <!--Page Window-->
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <!--Pages-->
+        <!-- Page List -->
         <Grid Grid.Column="0" Margin="20">
             <ListView x:Name="ListViewPages" ItemsSource="{Binding Pages}" Background="LightGreen" SelectionChanged="ListViewPages_SelectionChanged">
                 <ListView.ItemTemplate>
@@ -54,12 +56,19 @@
                                 <ListView ItemsSource="{Binding Graphics}">
                                     <ListView.ItemTemplate>
                                         <DataTemplate DataType="{x:Type local:GraphicViewModel}">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding Name}"/>
-                                                <TextBlock Text="{Binding}"/>
-
-                                      
-                                            </StackPanel>
+                                            <Border Margin="3" BorderBrush="Red" BorderThickness="1">
+                                                <StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{Binding Name}"/>
+                                                        <TextBlock Text="{Binding}"/>
+                                                    </StackPanel>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="Length:"/>
+                                                        <TextBlock Text="{Binding Length}"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </Border>
+                                  
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
@@ -73,11 +82,33 @@
         </Grid>
 
   
-        <Grid Grid.Column="2" Background="Black">
-            <Border Margin="20" Background="#343434" Padding="20">
-                <ContentPresenter Content="{Binding CurrentPage.PageCanvas}"/>
+        <!--Page Window-->
+        <Grid Grid.Column="2" DataContext="{Binding CurrentPage}" Background="#dedede">
+            <Grid.RowDefinitions>
+                <!--Draw Window Menu-->
+                <RowDefinition Height="Auto"/>
+                <!--Draw Window--> 
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-            </Border>
+            <!--Draw Window Menu-->
+            <Grid Grid.Row="0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Command="{Binding CanvasResetCommand}" MinWidth="80">Reset</Button>
+                    <Button Command="{Binding CanvasFitCommand}" MinWidth="80">Fit</Button>
+                    <Button Command="{Binding CanvasCenterCommand}" MinWidth="80">Center</Button>
+                    <Button Command="{Binding CanvasZoomInCommand}" MinWidth="80">Zoom In</Button>
+                    <Button Command="{Binding CanvasZoomOutCommand}" MinWidth="80">Zoom Out</Button>
+                </StackPanel>
+            </Grid>
+            
+            <!--Draw Window-->
+            <Grid Grid.Row="1">
+                <Border Margin="5" BorderBrush="LightGreen" BorderThickness="2" Background="#343434">
+                    <ContentPresenter Content="{Binding PageCanvas}"/>
+                </Border>
+            </Grid>
+            
         </Grid>
         
 

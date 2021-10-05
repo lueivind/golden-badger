@@ -7,9 +7,9 @@
              d:DataContext="{d:DesignInstance local:PageViewModel, IsDesignTimeCreatable=True}"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
-    <Grid>
-        <Grid Grid.Row="1">
-            <Grid ClipToBounds="True">
+  
+      
+            <Grid ClipToBounds="True" x:Name="pageGrid">
                 <Canvas x:Name="pageCanvas"
                 Background="Bisque" 
                 Height="10000" Width="10000"
@@ -34,8 +34,8 @@
                     </DockPanel>
                 </Canvas>
             </Grid>
-        </Grid>
+ 
 
-    </Grid>
+ 
 
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System.Windows.Shapes;
+﻿using System;
+using System.Windows.Shapes;
 
 namespace DrawingTool
 {
@@ -36,7 +37,16 @@ namespace DrawingTool
         /// <summary>
         /// Absolute length of element
         /// </summary>
-        public double Length { get; private set; }
+        public double Length
+        {
+            get
+            {
+                double a = Math.Abs(Line.X2 - Line.X1);
+                double b = Math.Abs(Line.Y2 - Line.Y1);
+                double c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+                return c;
+            }
+        }
 
         #endregion
 

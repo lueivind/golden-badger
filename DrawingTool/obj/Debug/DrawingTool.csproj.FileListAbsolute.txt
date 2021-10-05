@@ -157,8 +157,9 @@ C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\D
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.Properties.Resources.resources
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.GenerateResource.cache
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.CoreCompileInputs.cache
-C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.CopyComplete
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.exe
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.pdb
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\bin\Debug\Resources\test.pdf
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.AssemblyReference.cache
+C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\Views\Controls\GraphicListItemControl.g.cs
+C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\Views\Controls\GraphicListItemControl.baml
