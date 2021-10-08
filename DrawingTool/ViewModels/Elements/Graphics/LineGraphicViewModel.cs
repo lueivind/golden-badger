@@ -3,21 +3,18 @@ using System.Windows.Shapes;
 
 namespace DrawingTool
 {
-    /// <summary>
-    /// Viewmodel for graphical element
-    /// </summary>
-    public class GraphicViewModel : BaseViewModel
+    public class LineGraphicViewModel : GraphicViewModel
     {
+
         #region Constructor
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public GraphicViewModel(string name, Line line)
+        public LineGraphicViewModel(string name, Line line) : base(name)
         {
-            Name = name;
+            Shape = line;
             Line = line;
-
         }
 
         #endregion
@@ -25,14 +22,9 @@ namespace DrawingTool
         #region Public Properties
 
         /// <summary>
-        /// Name of element
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Graphical element
         /// </summary>
-        public Line Line { get; set; }
+        public Line Line { get; private set; }
 
         /// <summary>
         /// Absolute length of element
@@ -62,9 +54,5 @@ namespace DrawingTool
         }
 
         #endregion
-
-
-
-
     }
 }

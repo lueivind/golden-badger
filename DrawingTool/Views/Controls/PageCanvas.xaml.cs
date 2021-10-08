@@ -84,11 +84,12 @@ namespace DrawingTool
                     { 
                         if (viewModel.CurrentStructureClass == null)
                             return;
+
                         isFirstPoint = false;
                         Point point = e.GetPosition((Canvas)e.OriginalSource);
                         Line line = new Line();
                         line.IsHitTestVisible = false;
-                        line.Name = "Line" + viewModel.CurrentStructureClass.Graphics.Count.ToString();
+                        line.Name = "Line" + viewModel.CurrentStructureClass.Lines.Count.ToString();
                         line.Stroke = viewModel.CurrentStructureClass.ColorBrush;
                         line.X1 = point.X;
                         line.Y1 = point.Y;
@@ -102,7 +103,7 @@ namespace DrawingTool
                         Line line = (Line)pageCanvas.Children[0];
                         line.IsHitTestVisible = true;
                         isFirstPoint = true;
-                        viewModel.CurrentStructureClass.Graphics.Add(new GraphicViewModel(line.Name, line));
+                        viewModel.CurrentStructureClass.AddGraphic(new LineGraphicViewModel(line.Name, line));
                     }
                 }
             }

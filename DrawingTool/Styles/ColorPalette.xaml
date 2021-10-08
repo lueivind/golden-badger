@@ -1,0 +1,1159 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    
+    <!--
+    *** Materialize Colors ***
+    https://materializecss.com/color.html
+    -->
+        
+    <!--
+    **************************** RED **************************
+    -->
+    
+    <!-- red lighten 5 -->
+    <Color x:Key="red-lighten-5">#ffebee</Color>
+    <SolidColorBrush x:Key="red-lighten-5-brush" Color="{StaticResource red-lighten-5}"></SolidColorBrush>
+
+    <!-- red lighten 4 -->
+    <Color x:Key="red-lighten-4">#ffcdd2</Color>
+    <SolidColorBrush x:Key="red-lighten-4-brush" Color="{StaticResource red-lighten-4}"></SolidColorBrush>
+
+    <!-- red lighten 3 -->
+    <Color x:Key="red-lighten-3">#ef9a9a</Color>
+    <SolidColorBrush x:Key="red-lighten-3-brush" Color="{StaticResource red-lighten-3}"></SolidColorBrush>
+
+    <!-- red lighten 2 -->
+    <Color x:Key="red-lighten-2">#e57373</Color>
+    <SolidColorBrush x:Key="red-lighten-2-brush" Color="{StaticResource red-lighten-2}"></SolidColorBrush>
+
+    <!-- red lighten 1 -->
+    <Color x:Key="red-lighten-1">#ef5350</Color>
+    <SolidColorBrush x:Key="red-lighten-1-brush" Color="{StaticResource red-lighten-1}"></SolidColorBrush>
+
+    <!-- red -->
+    <Color x:Key="red">#f44336</Color>
+    <SolidColorBrush x:Key="red-brush" Color="{StaticResource red}"></SolidColorBrush>
+
+    <!-- red darken 1 -->
+    <Color x:Key="red-darken-1">#e53935</Color>
+    <SolidColorBrush x:Key="red-darken-1-brush" Color="{StaticResource red-darken-1}"></SolidColorBrush>
+
+    <!-- red darken 2 -->
+    <Color x:Key="red-darken-2">#d32f2f</Color>
+    <SolidColorBrush x:Key="red-darken-2-brush" Color="{StaticResource red-darken-2}"></SolidColorBrush>
+
+    <!-- red darken 3 -->
+    <Color x:Key="red-darken-3">#c62828</Color>
+    <SolidColorBrush x:Key="red-darken-3-brush" Color="{StaticResource red-darken-3}"></SolidColorBrush>
+
+    <!-- red darken 4 -->
+    <Color x:Key="red-darken-4">#b71c1c</Color>
+    <SolidColorBrush x:Key="red-darken-4-brush" Color="{StaticResource red-darken-4}"></SolidColorBrush>
+
+    <!-- red accent 1 -->
+    <Color x:Key="red-accent-1">#ff8a80</Color>
+    <SolidColorBrush x:Key="red-accent-1-brush" Color="{StaticResource red-accent-1}"></SolidColorBrush>
+
+    <!-- red accent 2 -->
+    <Color x:Key="red-accent-2">#ff5252</Color>
+    <SolidColorBrush x:Key="red-accent-2-brush" Color="{StaticResource red-accent-2}"></SolidColorBrush>
+
+    <!-- red accent 3 -->
+    <Color x:Key="red-accent-3">#ff1744</Color>
+    <SolidColorBrush x:Key="red-accent-3-brush" Color="{StaticResource red-accent-3}"></SolidColorBrush>
+
+    <!-- red accent 4 -->
+    <Color x:Key="red-accent-4">#d50000</Color>
+    <SolidColorBrush x:Key="red-accent-4-brush" Color="{StaticResource red-accent-4}"></SolidColorBrush>
+
+    
+    
+    
+    <!--
+    **************************** PINK **************************
+    -->
+
+    <!-- pink lighten 5 -->
+    <Color x:Key="pink-lighten-5">#fce4ec</Color>
+    <SolidColorBrush x:Key="pink-lighten-5-brush" Color="{StaticResource pink-lighten-5}"></SolidColorBrush>
+
+    <!-- pink lighten 4 -->
+    <Color x:Key="pink-lighten-4">#f8bbd0</Color>
+    <SolidColorBrush x:Key="pink-lighten-4-brush" Color="{StaticResource pink-lighten-4}"></SolidColorBrush>
+
+    <!-- pink lighten 3 -->
+    <Color x:Key="pink-lighten-3">#f48fb1</Color>
+    <SolidColorBrush x:Key="pink-lighten-3-brush" Color="{StaticResource pink-lighten-3}"></SolidColorBrush>
+
+    <!-- pink lighten 2 -->
+    <Color x:Key="pink-lighten-2">#f06292</Color>
+    <SolidColorBrush x:Key="pink-lighten-2-brush" Color="{StaticResource pink-lighten-2}"></SolidColorBrush>
+
+    <!-- pink lighten 1 -->
+    <Color x:Key="pink-lighten-1">#ec407a</Color>
+    <SolidColorBrush x:Key="pink-lighten-1-brush" Color="{StaticResource pink-lighten-1}"></SolidColorBrush>
+
+    <!-- pink -->
+    <Color x:Key="pink">#e91e63</Color>
+    <SolidColorBrush x:Key="pink-brush" Color="{StaticResource pink}"></SolidColorBrush>
+
+    <!-- pink darken 1 -->
+    <Color x:Key="pink-darken-1">#d81b60</Color>
+    <SolidColorBrush x:Key="pink-darken-1-brush" Color="{StaticResource pink-darken-1}"></SolidColorBrush>
+
+    <!-- pink darken 2 -->
+    <Color x:Key="pink-darken-2">#c2185b</Color>
+    <SolidColorBrush x:Key="pink-darken-2-brush" Color="{StaticResource pink-darken-2}"></SolidColorBrush>
+
+    <!-- pink darken 3 -->
+    <Color x:Key="pink-darken-3">#ad1457</Color>
+    <SolidColorBrush x:Key="pink-darken-3-brush" Color="{StaticResource pink-darken-3}"></SolidColorBrush>
+
+    <!-- pink darken 4 -->
+    <Color x:Key="pink-darken-4">#880e4f</Color>
+    <SolidColorBrush x:Key="pink-darken-4-brush" Color="{StaticResource pink-darken-4}"></SolidColorBrush>
+
+    <!-- pink accent 1 -->
+    <Color x:Key="pink-accent-1">#ff80ab</Color>
+    <SolidColorBrush x:Key="pink-accent-1-brush" Color="{StaticResource pink-accent-1}"></SolidColorBrush>
+
+    <!-- pink accent 2 -->
+    <Color x:Key="pink-accent-2">#ff4081</Color>
+    <SolidColorBrush x:Key="pink-accent-2-brush" Color="{StaticResource pink-accent-2}"></SolidColorBrush>
+
+    <!-- pink accent 3 -->
+    <Color x:Key="pink-accent-3">#f50057</Color>
+    <SolidColorBrush x:Key="pink-accent-3-brush" Color="{StaticResource pink-accent-3}"></SolidColorBrush>
+
+    <!-- pink accent 4 -->
+    <Color x:Key="pink-accent-4">#c51162</Color>
+    <SolidColorBrush x:Key="pink-accent-4-brush" Color="{StaticResource pink-accent-4}"></SolidColorBrush>
+
+    
+
+
+    <!--
+    **************************** PURPLE **************************
+    -->
+
+    <!-- purple lighten 5 -->
+    <Color x:Key="purple-lighten-5">#f3e5f5</Color>
+    <SolidColorBrush x:Key="purple-lighten-5-brush" Color="{StaticResource purple-lighten-5}"></SolidColorBrush>
+
+    <!-- purple lighten 4 -->
+    <Color x:Key="purple-lighten-4">#e1bee7</Color>
+    <SolidColorBrush x:Key="purple-lighten-4-brush" Color="{StaticResource purple-lighten-4}"></SolidColorBrush>
+
+    <!-- purple lighten 3 -->
+    <Color x:Key="purple-lighten-3">#ce93d8</Color>
+    <SolidColorBrush x:Key="purple-lighten-3-brush" Color="{StaticResource purple-lighten-3}"></SolidColorBrush>
+
+    <!-- purple lighten 2 -->
+    <Color x:Key="purple-lighten-2">#ba68c8</Color>
+    <SolidColorBrush x:Key="purple-lighten-2-brush" Color="{StaticResource purple-lighten-2}"></SolidColorBrush>
+
+    <!-- purple lighten 1 -->
+    <Color x:Key="purple-lighten-1">#ab47bc</Color>
+    <SolidColorBrush x:Key="purple-lighten-1-brush" Color="{StaticResource purple-lighten-1}"></SolidColorBrush>
+
+    <!-- purple -->
+    <Color x:Key="purple">#9c27b0</Color>
+    <SolidColorBrush x:Key="purple-brush" Color="{StaticResource purple}"></SolidColorBrush>
+
+    <!-- purple darken 1 -->
+    <Color x:Key="purple-darken-1">#8e24aa</Color>
+    <SolidColorBrush x:Key="purple-darken-1-brush" Color="{StaticResource purple-darken-1}"></SolidColorBrush>
+
+    <!-- purple darken 2 -->
+    <Color x:Key="purple-darken-2">#7b1fa2</Color>
+    <SolidColorBrush x:Key="purple-darken-2-brush" Color="{StaticResource purple-darken-2}"></SolidColorBrush>
+
+    <!-- purple darken 3 -->
+    <Color x:Key="purple-darken-3">#6a1b9a</Color>
+    <SolidColorBrush x:Key="purple-darken-3-brush" Color="{StaticResource purple-darken-3}"></SolidColorBrush>
+
+    <!-- purple darken 4 -->
+    <Color x:Key="purple-darken-4">#4a148c</Color>
+    <SolidColorBrush x:Key="purple-darken-4-brush" Color="{StaticResource purple-darken-4}"></SolidColorBrush>
+
+    <!-- purple accent 1 -->
+    <Color x:Key="purple-accent-1">#ea80fc</Color>
+    <SolidColorBrush x:Key="purple-accent-1-brush" Color="{StaticResource purple-accent-1}"></SolidColorBrush>
+
+    <!-- purple accent 2 -->
+    <Color x:Key="purple-accent-2">#e040fb</Color>
+    <SolidColorBrush x:Key="purple-accent-2-brush" Color="{StaticResource purple-accent-2}"></SolidColorBrush>
+
+    <!-- purple accent 3 -->
+    <Color x:Key="purple-accent-3">#d500f9</Color>
+    <SolidColorBrush x:Key="purple-accent-3-brush" Color="{StaticResource purple-accent-3}"></SolidColorBrush>
+
+    <!-- purple accent 4 -->
+    <Color x:Key="purple-accent-4">#aa00ff</Color>
+    <SolidColorBrush x:Key="purple-accent-4-brush" Color="{StaticResource purple-accent-4}"></SolidColorBrush>
+
+    
+    
+    
+    <!--
+    **************************** DEEP PURPLE **************************
+    -->
+
+    <!-- deep purple lighten 5 -->
+    <Color x:Key="deep-purple-lighten-5">#ede7f6</Color>
+    <SolidColorBrush x:Key="deep-purple-lighten-5-brush" Color="{StaticResource deep-purple-lighten-5}"></SolidColorBrush>
+
+    <!-- deep purple lighten 4 -->
+    <Color x:Key="deep-purple-lighten-4">#d1c4e9</Color>
+    <SolidColorBrush x:Key="deep-purple-lighten-4-brush" Color="{StaticResource deep-purple-lighten-4}"></SolidColorBrush>
+
+    <!-- deep purple lighten 3 -->
+    <Color x:Key="deep-purple-lighten-3">#b39ddb</Color>
+    <SolidColorBrush x:Key="deep-purple-lighten-3-brush" Color="{StaticResource deep-purple-lighten-3}"></SolidColorBrush>
+
+    <!-- deep purple lighten 2 -->
+    <Color x:Key="deep-purple-lighten-2">#9575cd</Color>
+    <SolidColorBrush x:Key="deep-purple-lighten-2-brush" Color="{StaticResource deep-purple-lighten-2}"></SolidColorBrush>
+
+    <!-- deep purple lighten 1 -->
+    <Color x:Key="deep-purple-lighten-1">#7e57c2</Color>
+    <SolidColorBrush x:Key="deep-purple-lighten-1-brush" Color="{StaticResource deep-purple-lighten-1}"></SolidColorBrush>
+
+    <!-- deep purple -->
+    <Color x:Key="deep-purple">#673ab7</Color>
+    <SolidColorBrush x:Key="deep-purple-brush" Color="{StaticResource deep-purple}"></SolidColorBrush>
+
+    <!-- deep purple darken 1 -->
+    <Color x:Key="deep-purple-darken-1">#5e35b1</Color>
+    <SolidColorBrush x:Key="deep-purple-darken-1-brush" Color="{StaticResource deep-purple-darken-1}"></SolidColorBrush>
+
+    <!-- deep purple darken 2 -->
+    <Color x:Key="deep-purple-darken-2">#512da8</Color>
+    <SolidColorBrush x:Key="deep-purple-darken-2-brush" Color="{StaticResource deep-purple-darken-2}"></SolidColorBrush>
+
+    <!-- deep purple darken 3 -->
+    <Color x:Key="deep-purple-darken-3">#4527a0</Color>
+    <SolidColorBrush x:Key="deep-purple-darken-3-brush" Color="{StaticResource deep-purple-darken-3}"></SolidColorBrush>
+
+    <!-- deep purple darken 4 -->
+    <Color x:Key="deep-purple-darken-4">#311b92</Color>
+    <SolidColorBrush x:Key="deep-purple-darken-4-brush" Color="{StaticResource deep-purple-darken-4}"></SolidColorBrush>
+
+    <!-- deep purple accent 1 -->
+    <Color x:Key="deep-purple-accent-1">#b388ff</Color>
+    <SolidColorBrush x:Key="deep-purple-accent-1-brush" Color="{StaticResource deep-purple-accent-1}"></SolidColorBrush>
+
+    <!-- deep purple accent 2 -->
+    <Color x:Key="deep-purple-accent-2">#7c4dff</Color>
+    <SolidColorBrush x:Key="deep-purple-accent-2-brush" Color="{StaticResource deep-purple-accent-2}"></SolidColorBrush>
+
+    <!-- deep purple accent 3 -->
+    <Color x:Key="deep-purple-accent-3">#651fff</Color>
+    <SolidColorBrush x:Key="deep-purple-accent-3-brush" Color="{StaticResource deep-purple-accent-3}"></SolidColorBrush>
+
+    <!-- deep purple accent 4 -->
+    <Color x:Key="deep-purple-accent-4">#6200ea</Color>
+    <SolidColorBrush x:Key="deep-purple-accent-4-brush" Color="{StaticResource deep-purple-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** INDIGO **************************
+    -->
+
+    <!-- indigo lighten 5 -->
+    <Color x:Key="indigo-lighten-5">#e8eaf6</Color>
+    <SolidColorBrush x:Key="indigo-lighten-5-brush" Color="{StaticResource indigo-lighten-5}"></SolidColorBrush>
+
+    <!-- indigo lighten 4 -->
+    <Color x:Key="indigo-lighten-4">#c5cae9</Color>
+    <SolidColorBrush x:Key="indigo-lighten-4-brush" Color="{StaticResource indigo-lighten-4}"></SolidColorBrush>
+
+    <!-- indigo lighten 3 -->
+    <Color x:Key="indigo-lighten-3">#9fa8da</Color>
+    <SolidColorBrush x:Key="indigo-lighten-3-brush" Color="{StaticResource indigo-lighten-3}"></SolidColorBrush>
+
+    <!-- indigo lighten 2 -->
+    <Color x:Key="indigo-lighten-2">#7986cb</Color>
+    <SolidColorBrush x:Key="indigo-lighten-2-brush" Color="{StaticResource indigo-lighten-2}"></SolidColorBrush>
+
+    <!-- indigo lighten 1 -->
+    <Color x:Key="indigo-lighten-1">#5c6bc0</Color>
+    <SolidColorBrush x:Key="indigo-lighten-1-brush" Color="{StaticResource indigo-lighten-1}"></SolidColorBrush>
+
+    <!-- indigo -->
+    <Color x:Key="indigo">#3f51b5</Color>
+    <SolidColorBrush x:Key="indigo-brush" Color="{StaticResource indigo}"></SolidColorBrush>
+
+    <!-- indigo darken 1 -->
+    <Color x:Key="indigo-darken-1">#3949ab</Color>
+    <SolidColorBrush x:Key="indigo-darken-1-brush" Color="{StaticResource indigo-darken-1}"></SolidColorBrush>
+
+    <!-- indigo darken 2 -->
+    <Color x:Key="indigo-darken-2">#303f9f</Color>
+    <SolidColorBrush x:Key="indigo-darken-2-brush" Color="{StaticResource indigo-darken-2}"></SolidColorBrush>
+
+    <!-- indigo darken 3 -->
+    <Color x:Key="indigo-darken-3">#283593</Color>
+    <SolidColorBrush x:Key="indigo-darken-3-brush" Color="{StaticResource indigo-darken-3}"></SolidColorBrush>
+
+    <!-- indigo darken 4 -->
+    <Color x:Key="indigo-darken-4">#1a237e</Color>
+    <SolidColorBrush x:Key="indigo-darken-4-brush" Color="{StaticResource indigo-darken-4}"></SolidColorBrush>
+
+    <!-- indigo accent 1 -->
+    <Color x:Key="indigo-accent-1">#8c9eff</Color>
+    <SolidColorBrush x:Key="indigo-accent-1-brush" Color="{StaticResource indigo-accent-1}"></SolidColorBrush>
+
+    <!-- indigo accent 2 -->
+    <Color x:Key="indigo-accent-2">#536dfe</Color>
+    <SolidColorBrush x:Key="indigo-accent-2-brush" Color="{StaticResource indigo-accent-2}"></SolidColorBrush>
+
+    <!-- indigo accent 3 -->
+    <Color x:Key="indigo-accent-3">#3d5afe</Color>
+    <SolidColorBrush x:Key="indigo-accent-3-brush" Color="{StaticResource indigo-accent-3}"></SolidColorBrush>
+
+    <!-- indigo accent 4 -->
+    <Color x:Key="indigo-accent-4">#304ffe</Color>
+    <SolidColorBrush x:Key="indigo-accent-4-brush" Color="{StaticResource indigo-accent-4}"></SolidColorBrush>
+
+
+
+    <!--
+    **************************** BLUE **************************
+    -->
+
+    <!-- blue lighten 5 -->
+    <Color x:Key="blue-lighten-5">#e3f2fd</Color>
+    <SolidColorBrush x:Key="blue-lighten-5-brush" Color="{StaticResource blue-lighten-5}"></SolidColorBrush>
+
+    <!-- blue lighten 4 -->
+    <Color x:Key="blue-lighten-4">#bbdefb</Color>
+    <SolidColorBrush x:Key="blue-lighten-4-brush" Color="{StaticResource blue-lighten-4}"></SolidColorBrush>
+
+    <!-- blue lighten 3 -->
+    <Color x:Key="blue-lighten-3">#90caf9</Color>
+    <SolidColorBrush x:Key="blue-lighten-3-brush" Color="{StaticResource blue-lighten-3}"></SolidColorBrush>
+
+    <!-- blue lighten 2 -->
+    <Color x:Key="blue-lighten-2">#64b5f6</Color>
+    <SolidColorBrush x:Key="blue-lighten-2-brush" Color="{StaticResource blue-lighten-2}"></SolidColorBrush>
+
+    <!-- blue lighten 1 -->
+    <Color x:Key="blue-lighten-1">#42a5f5</Color>
+    <SolidColorBrush x:Key="blue-lighten-1-brush" Color="{StaticResource blue-lighten-1}"></SolidColorBrush>
+
+    <!-- blue -->
+    <Color x:Key="blue">#2196f3</Color>
+    <SolidColorBrush x:Key="blue-brush" Color="{StaticResource blue}"></SolidColorBrush>
+
+    <!-- blue darken 1 -->
+    <Color x:Key="blue-darken-1">#1e88e5</Color>
+    <SolidColorBrush x:Key="blue-darken-1-brush" Color="{StaticResource blue-darken-1}"></SolidColorBrush>
+
+    <!-- blue darken 2 -->
+    <Color x:Key="blue-darken-2">#1976d2</Color>
+    <SolidColorBrush x:Key="blue-darken-2-brush" Color="{StaticResource blue-darken-2}"></SolidColorBrush>
+
+    <!-- blue darken 3 -->
+    <Color x:Key="blue-darken-3">#1565c0</Color>
+    <SolidColorBrush x:Key="blue-darken-3-brush" Color="{StaticResource blue-darken-3}"></SolidColorBrush>
+
+    <!-- blue darken 4 -->
+    <Color x:Key="blue-darken-4">#0d47a1</Color>
+    <SolidColorBrush x:Key="blue-darken-4-brush" Color="{StaticResource blue-darken-4}"></SolidColorBrush>
+
+    <!-- blue accent 1 -->
+    <Color x:Key="blue-accent-1">#82b1ff</Color>
+    <SolidColorBrush x:Key="blue-accent-1-brush" Color="{StaticResource blue-accent-1}"></SolidColorBrush>
+
+    <!-- blue accent 2 -->
+    <Color x:Key="blue-accent-2">#448aff</Color>
+    <SolidColorBrush x:Key="blue-accent-2-brush" Color="{StaticResource blue-accent-2}"></SolidColorBrush>
+
+    <!-- blue accent 3 -->
+    <Color x:Key="blue-accent-3">#2979ff</Color>
+    <SolidColorBrush x:Key="blue-accent-3-brush" Color="{StaticResource blue-accent-3}"></SolidColorBrush>
+
+    <!-- blue accent 4 -->
+    <Color x:Key="blue-accent-4">#2962ff</Color>
+    <SolidColorBrush x:Key="blue-accent-4-brush" Color="{StaticResource blue-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** LIGHT BLUE **************************
+    -->
+
+    <!-- light blue lighten 5 -->
+    <Color x:Key="light-blue-lighten-5">#e1f5fe</Color>
+    <SolidColorBrush x:Key="light-blue-lighten-5-brush" Color="{StaticResource light-blue-lighten-5}"></SolidColorBrush>
+
+    <!-- light blue lighten 4 -->
+    <Color x:Key="light-blue-lighten-4">#b3e5fc</Color>
+    <SolidColorBrush x:Key="light-blue-lighten-4-brush" Color="{StaticResource light-blue-lighten-4}"></SolidColorBrush>
+
+    <!-- light blue lighten 3 -->
+    <Color x:Key="light-blue-lighten-3">#81d4fa</Color>
+    <SolidColorBrush x:Key="light-blue-lighten-3-brush" Color="{StaticResource light-blue-lighten-3}"></SolidColorBrush>
+
+    <!-- light blue lighten 2 -->
+    <Color x:Key="light-blue-lighten-2">#4fc3f7</Color>
+    <SolidColorBrush x:Key="light-blue-lighten-2-brush" Color="{StaticResource light-blue-lighten-2}"></SolidColorBrush>
+
+    <!-- light blue lighten 1 -->
+    <Color x:Key="light-blue-lighten-1">#29b6f6</Color>
+    <SolidColorBrush x:Key="light-blue-lighten-1-brush" Color="{StaticResource light-blue-lighten-1}"></SolidColorBrush>
+
+    <!-- light blue -->
+    <Color x:Key="light-blue">#03a9f4</Color>
+    <SolidColorBrush x:Key="light-blue-brush" Color="{StaticResource light-blue}"></SolidColorBrush>
+
+    <!-- light blue darken 1 -->
+    <Color x:Key="light-blue-darken-1">#039be5</Color>
+    <SolidColorBrush x:Key="light-blue-darken-1-brush" Color="{StaticResource light-blue-darken-1}"></SolidColorBrush>
+
+    <!-- light blue darken 2 -->
+    <Color x:Key="light-blue-darken-2">#0288d1</Color>
+    <SolidColorBrush x:Key="light-blue-darken-2-brush" Color="{StaticResource light-blue-darken-2}"></SolidColorBrush>
+
+    <!-- light blue darken 3 -->
+    <Color x:Key="light-blue-darken-3">#0277bd</Color>
+    <SolidColorBrush x:Key="light-blue-darken-3-brush" Color="{StaticResource light-blue-darken-3}"></SolidColorBrush>
+
+    <!-- light blue darken 4 -->
+    <Color x:Key="light-blue-darken-4">#01579b</Color>
+    <SolidColorBrush x:Key="light-blue-darken-4-brush" Color="{StaticResource light-blue-darken-4}"></SolidColorBrush>
+
+    <!-- light blue accent 1 -->
+    <Color x:Key="light-blue-accent-1">#80d8ff</Color>
+    <SolidColorBrush x:Key="light-blue-accent-1-brush" Color="{StaticResource light-blue-accent-1}"></SolidColorBrush>
+
+    <!-- light blue accent 2 -->
+    <Color x:Key="light-blue-accent-2">#40c4ff</Color>
+    <SolidColorBrush x:Key="light-blue-accent-2-brush" Color="{StaticResource light-blue-accent-2}"></SolidColorBrush>
+
+    <!-- light blue accent 3 -->
+    <Color x:Key="light-blue-accent-3">#00b0ff</Color>
+    <SolidColorBrush x:Key="light-blue-accent-3-brush" Color="{StaticResource light-blue-accent-3}"></SolidColorBrush>
+
+    <!-- light blue accent 4 -->
+    <Color x:Key="light-blue-accent-4">#0091ea</Color>
+    <SolidColorBrush x:Key="light-blue-accent-4-brush" Color="{StaticResource light-blue-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** CYAN **************************
+    -->
+
+    <!-- cyan lighten 5 -->
+    <Color x:Key="cyan-lighten-5">#e0f7fa</Color>
+    <SolidColorBrush x:Key="cyan-lighten-5-brush" Color="{StaticResource cyan-lighten-5}"></SolidColorBrush>
+
+    <!-- cyan lighten 4 -->
+    <Color x:Key="cyan-lighten-4">#b2ebf2</Color>
+    <SolidColorBrush x:Key="cyan-lighten-4-brush" Color="{StaticResource cyan-lighten-4}"></SolidColorBrush>
+
+    <!-- cyan lighten 3 -->
+    <Color x:Key="cyan-lighten-3">#80deea</Color>
+    <SolidColorBrush x:Key="cyan-lighten-3-brush" Color="{StaticResource cyan-lighten-3}"></SolidColorBrush>
+
+    <!-- cyan lighten 2 -->
+    <Color x:Key="cyan-lighten-2">#4dd0e1</Color>
+    <SolidColorBrush x:Key="cyan-lighten-2-brush" Color="{StaticResource cyan-lighten-2}"></SolidColorBrush>
+
+    <!-- cyan lighten 1 -->
+    <Color x:Key="cyan-lighten-1">#26c6da</Color>
+    <SolidColorBrush x:Key="cyan-lighten-1-brush" Color="{StaticResource cyan-lighten-1}"></SolidColorBrush>
+
+    <!-- cyan -->
+    <Color x:Key="cyan">#00bcd4</Color>
+    <SolidColorBrush x:Key="cyan-brush" Color="{StaticResource cyan}"></SolidColorBrush>
+
+    <!-- cyan darken 1 -->
+    <Color x:Key="cyan-darken-1">#00acc1</Color>
+    <SolidColorBrush x:Key="cyan-darken-1-brush" Color="{StaticResource cyan-darken-1}"></SolidColorBrush>
+
+    <!-- cyan darken 2 -->
+    <Color x:Key="cyan-darken-2">#0097a7</Color>
+    <SolidColorBrush x:Key="cyan-darken-2-brush" Color="{StaticResource cyan-darken-2}"></SolidColorBrush>
+
+    <!-- cyan darken 3 -->
+    <Color x:Key="cyan-darken-3">#00838f</Color>
+    <SolidColorBrush x:Key="cyan-darken-3-brush" Color="{StaticResource cyan-darken-3}"></SolidColorBrush>
+
+    <!-- cyan darken 4 -->
+    <Color x:Key="cyan-darken-4">#006064</Color>
+    <SolidColorBrush x:Key="cyan-darken-4-brush" Color="{StaticResource cyan-darken-4}"></SolidColorBrush>
+
+    <!-- cyan accent 1 -->
+    <Color x:Key="cyan-accent-1">#84ffff</Color>
+    <SolidColorBrush x:Key="cyan-accent-1-brush" Color="{StaticResource cyan-accent-1}"></SolidColorBrush>
+
+    <!-- cyan accent 2 -->
+    <Color x:Key="cyan-accent-2">#18ffff</Color>
+    <SolidColorBrush x:Key="cyan-accent-2-brush" Color="{StaticResource cyan-accent-2}"></SolidColorBrush>
+
+    <!-- cyan accent 3 -->
+    <Color x:Key="cyan-accent-3">#00e5ff</Color>
+    <SolidColorBrush x:Key="cyan-accent-3-brush" Color="{StaticResource cyan-accent-3}"></SolidColorBrush>
+
+    <!-- cyan accent 4 -->
+    <Color x:Key="cyan-accent-4">#00b8d4</Color>
+    <SolidColorBrush x:Key="cyan-accent-4-brush" Color="{StaticResource cyan-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** TEAL **************************
+    -->
+
+    <!-- teal lighten 5 -->
+    <Color x:Key="teal-lighten-5">#e0f2f1</Color>
+    <SolidColorBrush x:Key="teal-lighten-5-brush" Color="{StaticResource teal-lighten-5}"></SolidColorBrush>
+
+    <!-- teal lighten 4 -->
+    <Color x:Key="teal-lighten-4">#b2dfdb</Color>
+    <SolidColorBrush x:Key="teal-lighten-4-brush" Color="{StaticResource teal-lighten-4}"></SolidColorBrush>
+
+    <!-- teal lighten 3 -->
+    <Color x:Key="teal-lighten-3">#80cbc4</Color>
+    <SolidColorBrush x:Key="teal-lighten-3-brush" Color="{StaticResource teal-lighten-3}"></SolidColorBrush>
+
+    <!-- teal lighten 2 -->
+    <Color x:Key="teal-lighten-2">#4db6ac</Color>
+    <SolidColorBrush x:Key="teal-lighten-2-brush" Color="{StaticResource teal-lighten-2}"></SolidColorBrush>
+
+    <!-- teal lighten 1 -->
+    <Color x:Key="teal-lighten-1">#26a69a</Color>
+    <SolidColorBrush x:Key="teal-lighten-1-brush" Color="{StaticResource teal-lighten-1}"></SolidColorBrush>
+
+    <!-- teal -->
+    <Color x:Key="teal">#009688</Color>
+    <SolidColorBrush x:Key="teal-brush" Color="{StaticResource teal}"></SolidColorBrush>
+
+    <!-- teal darken 1 -->
+    <Color x:Key="teal-darken-1">#00897b</Color>
+    <SolidColorBrush x:Key="teal-darken-1-brush" Color="{StaticResource teal-darken-1}"></SolidColorBrush>
+
+    <!-- teal darken 2 -->
+    <Color x:Key="teal-darken-2">#00796b</Color>
+    <SolidColorBrush x:Key="teal-darken-2-brush" Color="{StaticResource teal-darken-2}"></SolidColorBrush>
+
+    <!-- teal darken 3 -->
+    <Color x:Key="teal-darken-3">#00695c</Color>
+    <SolidColorBrush x:Key="teal-darken-3-brush" Color="{StaticResource teal-darken-3}"></SolidColorBrush>
+
+    <!-- teal darken 4 -->
+    <Color x:Key="teal-darken-4">#004d40</Color>
+    <SolidColorBrush x:Key="teal-darken-4-brush" Color="{StaticResource teal-darken-4}"></SolidColorBrush>
+
+    <!-- teal accent 1 -->
+    <Color x:Key="teal-accent-1">#a7ffeb</Color>
+    <SolidColorBrush x:Key="teal-accent-1-brush" Color="{StaticResource teal-accent-1}"></SolidColorBrush>
+
+    <!-- teal accent 2 -->
+    <Color x:Key="teal-accent-2">#64ffda</Color>
+    <SolidColorBrush x:Key="teal-accent-2-brush" Color="{StaticResource teal-accent-2}"></SolidColorBrush>
+
+    <!-- teal accent 3 -->
+    <Color x:Key="teal-accent-3">#1de9b6</Color>
+    <SolidColorBrush x:Key="teal-accent-3-brush" Color="{StaticResource teal-accent-3}"></SolidColorBrush>
+
+    <!-- teal accent 4 -->
+    <Color x:Key="teal-accent-4">#00bfa5</Color>
+    <SolidColorBrush x:Key="teal-accent-4-brush" Color="{StaticResource teal-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** GREEN **************************
+    -->
+
+    <!-- green lighten 5 -->
+    <Color x:Key="green-lighten-5">#e8f5e9</Color>
+    <SolidColorBrush x:Key="green-lighten-5-brush" Color="{StaticResource green-lighten-5}"></SolidColorBrush>
+
+    <!-- green lighten 4 -->
+    <Color x:Key="green-lighten-4">#c8e6c9</Color>
+    <SolidColorBrush x:Key="green-lighten-4-brush" Color="{StaticResource green-lighten-4}"></SolidColorBrush>
+
+    <!-- green lighten 3 -->
+    <Color x:Key="green-lighten-3">#a5d6a7</Color>
+    <SolidColorBrush x:Key="green-lighten-3-brush" Color="{StaticResource green-lighten-3}"></SolidColorBrush>
+
+    <!-- green lighten 2 -->
+    <Color x:Key="green-lighten-2">#81c784</Color>
+    <SolidColorBrush x:Key="green-lighten-2-brush" Color="{StaticResource green-lighten-2}"></SolidColorBrush>
+
+    <!-- green lighten 1 -->
+    <Color x:Key="green-lighten-1">#66bb6a</Color>
+    <SolidColorBrush x:Key="green-lighten-1-brush" Color="{StaticResource green-lighten-1}"></SolidColorBrush>
+
+    <!-- green -->
+    <Color x:Key="green">#4caf50</Color>
+    <SolidColorBrush x:Key="green-brush" Color="{StaticResource green}"></SolidColorBrush>
+
+    <!-- green darken 1 -->
+    <Color x:Key="green-darken-1">#43a047</Color>
+    <SolidColorBrush x:Key="green-darken-1-brush" Color="{StaticResource green-darken-1}"></SolidColorBrush>
+
+    <!-- green darken 2 -->
+    <Color x:Key="green-darken-2">#388e3c</Color>
+    <SolidColorBrush x:Key="green-darken-2-brush" Color="{StaticResource green-darken-2}"></SolidColorBrush>
+
+    <!-- green darken 3 -->
+    <Color x:Key="green-darken-3">#2e7d32</Color>
+    <SolidColorBrush x:Key="green-darken-3-brush" Color="{StaticResource green-darken-3}"></SolidColorBrush>
+
+    <!-- green darken 4 -->
+    <Color x:Key="green-darken-4">#1b5e20</Color>
+    <SolidColorBrush x:Key="green-darken-4-brush" Color="{StaticResource green-darken-4}"></SolidColorBrush>
+
+    <!-- green accent 1 -->
+    <Color x:Key="green-accent-1">#b9f6ca</Color>
+    <SolidColorBrush x:Key="green-accent-1-brush" Color="{StaticResource green-accent-1}"></SolidColorBrush>
+
+    <!-- green accent 2 -->
+    <Color x:Key="green-accent-2">#69f0ae</Color>
+    <SolidColorBrush x:Key="green-accent-2-brush" Color="{StaticResource green-accent-2}"></SolidColorBrush>
+
+    <!-- green accent 3 -->
+    <Color x:Key="green-accent-3">#00e676</Color>
+    <SolidColorBrush x:Key="green-accent-3-brush" Color="{StaticResource green-accent-3}"></SolidColorBrush>
+
+    <!-- green accent 4 -->
+    <Color x:Key="green-accent-4">#00c853</Color>
+    <SolidColorBrush x:Key="green-accent-4-brush" Color="{StaticResource green-accent-4}"></SolidColorBrush>
+
+    
+
+
+    <!--
+    **************************** LIGHT GREEN **************************
+    -->
+
+    <!-- light green lighten 5 -->
+    <Color x:Key="light-green-lighten-5">#f1f8e9</Color>
+    <SolidColorBrush x:Key="light-green-lighten-5-brush" Color="{StaticResource light-green-lighten-5}"></SolidColorBrush>
+
+    <!-- light green lighten 4 -->
+    <Color x:Key="light-green-lighten-4">#dcedc8</Color>
+    <SolidColorBrush x:Key="light-green-lighten-4-brush" Color="{StaticResource light-green-lighten-4}"></SolidColorBrush>
+
+    <!-- light green lighten 3 -->
+    <Color x:Key="light-green-lighten-3">#c5e1a5</Color>
+    <SolidColorBrush x:Key="light-green-lighten-3-brush" Color="{StaticResource light-green-lighten-3}"></SolidColorBrush>
+
+    <!-- light green lighten 2 -->
+    <Color x:Key="light-green-lighten-2">#aed581</Color>
+    <SolidColorBrush x:Key="light-green-lighten-2-brush" Color="{StaticResource light-green-lighten-2}"></SolidColorBrush>
+
+    <!-- light green lighten 1 -->
+    <Color x:Key="light-green-lighten-1">#9ccc65</Color>
+    <SolidColorBrush x:Key="light-green-lighten-1-brush" Color="{StaticResource light-green-lighten-1}"></SolidColorBrush>
+
+    <!-- light green -->
+    <Color x:Key="light-green">#8bc34a</Color>
+    <SolidColorBrush x:Key="light-green-brush" Color="{StaticResource light-green}"></SolidColorBrush>
+
+    <!-- light green darken 1 -->
+    <Color x:Key="light-green-darken-1">#7cb342</Color>
+    <SolidColorBrush x:Key="light-green-darken-1-brush" Color="{StaticResource light-green-darken-1}"></SolidColorBrush>
+
+    <!-- light green darken 2 -->
+    <Color x:Key="light-green-darken-2">#689f38</Color>
+    <SolidColorBrush x:Key="light-green-darken-2-brush" Color="{StaticResource light-green-darken-2}"></SolidColorBrush>
+
+    <!-- light green darken 3 -->
+    <Color x:Key="light-green-darken-3">#558b2f</Color>
+    <SolidColorBrush x:Key="light-green-darken-3-brush" Color="{StaticResource light-green-darken-3}"></SolidColorBrush>
+
+    <!-- light green darken 4 -->
+    <Color x:Key="light-green-darken-4">#33691e</Color>
+    <SolidColorBrush x:Key="light-green-darken-4-brush" Color="{StaticResource light-green-darken-4}"></SolidColorBrush>
+
+    <!-- light green accent 1 -->
+    <Color x:Key="light-green-accent-1">#ccff90</Color>
+    <SolidColorBrush x:Key="light-green-accent-1-brush" Color="{StaticResource light-green-accent-1}"></SolidColorBrush>
+
+    <!-- light green accent 2 -->
+    <Color x:Key="light-green-accent-2">#b2ff59</Color>
+    <SolidColorBrush x:Key="light-green-accent-2-brush" Color="{StaticResource light-green-accent-2}"></SolidColorBrush>
+
+    <!-- light green accent 3 -->
+    <Color x:Key="light-green-accent-3">#76ff03</Color>
+    <SolidColorBrush x:Key="light-green-accent-3-brush" Color="{StaticResource light-green-accent-3}"></SolidColorBrush>
+
+    <!-- light green accent 4 -->
+    <Color x:Key="light-green-accent-4">#64dd17</Color>
+    <SolidColorBrush x:Key="light-green-accent-4-brush" Color="{StaticResource light-green-accent-4}"></SolidColorBrush>
+
+    
+
+
+    <!--
+    **************************** LIME **************************
+    -->
+
+    <!-- lime lighten 5 -->
+    <Color x:Key="lime-lighten-5">#f9fbe7</Color>
+    <SolidColorBrush x:Key="lime-lighten-5-brush" Color="{StaticResource lime-lighten-5}"></SolidColorBrush>
+
+    <!-- lime lighten 4 -->
+    <Color x:Key="lime-lighten-4">#f0f4c3</Color>
+    <SolidColorBrush x:Key="lime-lighten-4-brush" Color="{StaticResource lime-lighten-4}"></SolidColorBrush>
+
+    <!-- lime lighten 3 -->
+    <Color x:Key="lime-lighten-3">#e6ee9c</Color>
+    <SolidColorBrush x:Key="lime-lighten-3-brush" Color="{StaticResource lime-lighten-3}"></SolidColorBrush>
+
+    <!-- lime lighten 2 -->
+    <Color x:Key="lime-lighten-2">#dce775</Color>
+    <SolidColorBrush x:Key="lime-lighten-2-brush" Color="{StaticResource lime-lighten-2}"></SolidColorBrush>
+
+    <!-- lime lighten 1 -->
+    <Color x:Key="lime-lighten-1">#d4e157</Color>
+    <SolidColorBrush x:Key="lime-lighten-1-brush" Color="{StaticResource lime-lighten-1}"></SolidColorBrush>
+
+    <!-- lime -->
+    <Color x:Key="lime">#cddc39</Color>
+    <SolidColorBrush x:Key="lime-brush" Color="{StaticResource lime}"></SolidColorBrush>
+
+    <!-- lime darken 1 -->
+    <Color x:Key="lime-darken-1">#c0ca33</Color>
+    <SolidColorBrush x:Key="lime-darken-1-brush" Color="{StaticResource lime-darken-1}"></SolidColorBrush>
+
+    <!-- lime darken 2 -->
+    <Color x:Key="lime-darken-2">#afb42b</Color>
+    <SolidColorBrush x:Key="lime-darken-2-brush" Color="{StaticResource lime-darken-2}"></SolidColorBrush>
+
+    <!-- lime darken 3 -->
+    <Color x:Key="lime-darken-3">#9e9d24</Color>
+    <SolidColorBrush x:Key="lime-darken-3-brush" Color="{StaticResource lime-darken-3}"></SolidColorBrush>
+
+    <!-- lime darken 4 -->
+    <Color x:Key="lime-darken-4">#827717</Color>
+    <SolidColorBrush x:Key="lime-darken-4-brush" Color="{StaticResource lime-darken-4}"></SolidColorBrush>
+
+    <!-- lime accent 1 -->
+    <Color x:Key="lime-accent-1">#f4ff81</Color>
+    <SolidColorBrush x:Key="lime-accent-1-brush" Color="{StaticResource lime-accent-1}"></SolidColorBrush>
+
+    <!-- lime accent 2 -->
+    <Color x:Key="lime-accent-2">#eeff41</Color>
+    <SolidColorBrush x:Key="lime-accent-2-brush" Color="{StaticResource lime-accent-2}"></SolidColorBrush>
+
+    <!-- lime accent 3 -->
+    <Color x:Key="lime-accent-3">#c6ff00</Color>
+    <SolidColorBrush x:Key="lime-accent-3-brush" Color="{StaticResource lime-accent-3}"></SolidColorBrush>
+
+    <!-- lime accent 4 -->
+    <Color x:Key="lime-accent-4">#aeea00</Color>
+    <SolidColorBrush x:Key="lime-accent-4-brush" Color="{StaticResource lime-accent-4}"></SolidColorBrush>
+
+
+    
+    
+    <!--
+    **************************** YELLOW **************************
+    -->
+
+    <!-- yellow lighten 5 -->
+    <Color x:Key="yellow-lighten-5">#fffde7</Color>
+    <SolidColorBrush x:Key="yellow-lighten-5-brush" Color="{StaticResource yellow-lighten-5}"></SolidColorBrush>
+
+    <!-- yellow lighten 4 -->
+    <Color x:Key="yellow-lighten-4">#fff9c4</Color>
+    <SolidColorBrush x:Key="yellow-lighten-4-brush" Color="{StaticResource yellow-lighten-4}"></SolidColorBrush>
+
+    <!-- yellow lighten 3 -->
+    <Color x:Key="yellow-lighten-3">#fff59d</Color>
+    <SolidColorBrush x:Key="yellow-lighten-3-brush" Color="{StaticResource yellow-lighten-3}"></SolidColorBrush>
+
+    <!-- yellow lighten 2 -->
+    <Color x:Key="yellow-lighten-2">#fff176</Color>
+    <SolidColorBrush x:Key="yellow-lighten-2-brush" Color="{StaticResource yellow-lighten-2}"></SolidColorBrush>
+
+    <!-- yellow lighten 1 -->
+    <Color x:Key="yellow-lighten-1">#ffee58</Color>
+    <SolidColorBrush x:Key="yellow-lighten-1-brush" Color="{StaticResource yellow-lighten-1}"></SolidColorBrush>
+
+    <!-- yellow -->
+    <Color x:Key="yellow">#ffeb3b</Color>
+    <SolidColorBrush x:Key="yellow-brush" Color="{StaticResource yellow}"></SolidColorBrush>
+
+    <!-- yellow darken 1 -->
+    <Color x:Key="yellow-darken-1">#fdd835</Color>
+    <SolidColorBrush x:Key="yellow-darken-1-brush" Color="{StaticResource yellow-darken-1}"></SolidColorBrush>
+
+    <!-- yellow darken 2 -->
+    <Color x:Key="yellow-darken-2">#fbc02d</Color>
+    <SolidColorBrush x:Key="yellow-darken-2-brush" Color="{StaticResource yellow-darken-2}"></SolidColorBrush>
+
+    <!-- yellow darken 3 -->
+    <Color x:Key="yellow-darken-3">#f9a825</Color>
+    <SolidColorBrush x:Key="yellow-darken-3-brush" Color="{StaticResource yellow-darken-3}"></SolidColorBrush>
+
+    <!-- yellow darken 4 -->
+    <Color x:Key="yellow-darken-4">#f57f17</Color>
+    <SolidColorBrush x:Key="yellow-darken-4-brush" Color="{StaticResource yellow-darken-4}"></SolidColorBrush>
+
+    <!-- yellow accent 1 -->
+    <Color x:Key="yellow-accent-1">#ffff8d</Color>
+    <SolidColorBrush x:Key="yellow-accent-1-brush" Color="{StaticResource yellow-accent-1}"></SolidColorBrush>
+
+    <!-- yellow accent 2 -->
+    <Color x:Key="yellow-accent-2">#ffff00</Color>
+    <SolidColorBrush x:Key="yellow-accent-2-brush" Color="{StaticResource yellow-accent-2}"></SolidColorBrush>
+
+    <!-- yellow accent 3 -->
+    <Color x:Key="yellow-accent-3">#ffea00</Color>
+    <SolidColorBrush x:Key="yellow-accent-3-brush" Color="{StaticResource yellow-accent-3}"></SolidColorBrush>
+
+    <!-- yellow accent 4 -->
+    <Color x:Key="yellow-accent-4">#ffd600</Color>
+    <SolidColorBrush x:Key="yellow-accent-4-brush" Color="{StaticResource yellow-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** ORANGE **************************
+    -->
+
+    <!-- orange lighten 5 -->
+    <Color x:Key="orange-lighten-5">#fff3e0</Color>
+    <SolidColorBrush x:Key="orange-lighten-5-brush" Color="{StaticResource orange-lighten-5}"></SolidColorBrush>
+
+    <!-- orange lighten 4 -->
+    <Color x:Key="orange-lighten-4">#ffe0b2</Color>
+    <SolidColorBrush x:Key="orange-lighten-4-brush" Color="{StaticResource orange-lighten-4}"></SolidColorBrush>
+
+    <!-- orange lighten 3 -->
+    <Color x:Key="orange-lighten-3">#ffcc80</Color>
+    <SolidColorBrush x:Key="orange-lighten-3-brush" Color="{StaticResource orange-lighten-3}"></SolidColorBrush>
+
+    <!-- orange lighten 2 -->
+    <Color x:Key="orange-lighten-2">#ffb74d</Color>
+    <SolidColorBrush x:Key="orange-lighten-2-brush" Color="{StaticResource orange-lighten-2}"></SolidColorBrush>
+
+    <!-- orange lighten 1 -->
+    <Color x:Key="orange-lighten-1">#ffa726</Color>
+    <SolidColorBrush x:Key="orange-lighten-1-brush" Color="{StaticResource orange-lighten-1}"></SolidColorBrush>
+
+    <!-- orange -->
+    <Color x:Key="orange">#ff9800</Color>
+    <SolidColorBrush x:Key="orange-brush" Color="{StaticResource orange}"></SolidColorBrush>
+
+    <!-- orange darken 1 -->
+    <Color x:Key="orange-darken-1">#fb8c00</Color>
+    <SolidColorBrush x:Key="orange-darken-1-brush" Color="{StaticResource orange-darken-1}"></SolidColorBrush>
+
+    <!-- orange darken 2 -->
+    <Color x:Key="orange-darken-2">#f57c00</Color>
+    <SolidColorBrush x:Key="orange-darken-2-brush" Color="{StaticResource orange-darken-2}"></SolidColorBrush>
+
+    <!-- orange darken 3 -->
+    <Color x:Key="orange-darken-3">#ef6c00</Color>
+    <SolidColorBrush x:Key="orange-darken-3-brush" Color="{StaticResource orange-darken-3}"></SolidColorBrush>
+
+    <!-- orange darken 4 -->
+    <Color x:Key="orange-darken-4">#e65100</Color>
+    <SolidColorBrush x:Key="orange-darken-4-brush" Color="{StaticResource orange-darken-4}"></SolidColorBrush>
+
+    <!-- orange accent 1 -->
+    <Color x:Key="orange-accent-1">#ffd180</Color>
+    <SolidColorBrush x:Key="orange-accent-1-brush" Color="{StaticResource orange-accent-1}"></SolidColorBrush>
+
+    <!-- orange accent 2 -->
+    <Color x:Key="orange-accent-2">#ffab40</Color>
+    <SolidColorBrush x:Key="orange-accent-2-brush" Color="{StaticResource orange-accent-2}"></SolidColorBrush>
+
+    <!-- orange accent 3 -->
+    <Color x:Key="orange-accent-3">#ff9100</Color>
+    <SolidColorBrush x:Key="orange-accent-3-brush" Color="{StaticResource orange-accent-3}"></SolidColorBrush>
+
+    <!-- orange accent 4 -->
+    <Color x:Key="orange-accent-4">#ff6d00</Color>
+    <SolidColorBrush x:Key="orange-accent-4-brush" Color="{StaticResource orange-accent-4}"></SolidColorBrush>
+
+
+
+
+
+    <!--
+    **************************** AMBER **************************
+    -->
+
+    <!-- amber lighten 5 -->
+    <Color x:Key="amber-lighten-5">#fff8e1</Color>
+    <SolidColorBrush x:Key="amber-lighten-5-brush" Color="{StaticResource amber-lighten-5}"></SolidColorBrush>
+
+    <!-- amber lighten 4 -->
+    <Color x:Key="amber-lighten-4">#ffecb3</Color>
+    <SolidColorBrush x:Key="amber-lighten-4-brush" Color="{StaticResource amber-lighten-4}"></SolidColorBrush>
+
+    <!-- amber lighten 3 -->
+    <Color x:Key="amber-lighten-3">#ffe082</Color>
+    <SolidColorBrush x:Key="amber-lighten-3-brush" Color="{StaticResource amber-lighten-3}"></SolidColorBrush>
+
+    <!-- amber lighten 2 -->
+    <Color x:Key="amber-lighten-2">#ffd54f</Color>
+    <SolidColorBrush x:Key="amber-lighten-2-brush" Color="{StaticResource amber-lighten-2}"></SolidColorBrush>
+
+    <!-- amber lighten 1 -->
+    <Color x:Key="amber-lighten-1">#ffca28</Color>
+    <SolidColorBrush x:Key="amber-lighten-1-brush" Color="{StaticResource amber-lighten-1}"></SolidColorBrush>
+
+    <!-- amber -->
+    <Color x:Key="amber">#ffc107</Color>
+    <SolidColorBrush x:Key="amber-brush" Color="{StaticResource amber}"></SolidColorBrush>
+
+    <!-- amber darken 1 -->
+    <Color x:Key="amber-darken-1">#ffb300</Color>
+    <SolidColorBrush x:Key="amber-darken-1-brush" Color="{StaticResource amber-darken-1}"></SolidColorBrush>
+
+    <!-- amber darken 2 -->
+    <Color x:Key="amber-darken-2">#ffa000</Color>
+    <SolidColorBrush x:Key="amber-darken-2-brush" Color="{StaticResource amber-darken-2}"></SolidColorBrush>
+
+    <!-- amber darken 3 -->
+    <Color x:Key="amber-darken-3">#ff8f00</Color>
+    <SolidColorBrush x:Key="amber-darken-3-brush" Color="{StaticResource amber-darken-3}"></SolidColorBrush>
+
+    <!-- amber darken 4 -->
+    <Color x:Key="amber-darken-4">#ff6f00</Color>
+    <SolidColorBrush x:Key="amber-darken-4-brush" Color="{StaticResource amber-darken-4}"></SolidColorBrush>
+
+    <!-- amber accent 1 -->
+    <Color x:Key="amber-accent-1">#ffe57f</Color>
+    <SolidColorBrush x:Key="amber-accent-1-brush" Color="{StaticResource amber-accent-1}"></SolidColorBrush>
+
+    <!-- amber accent 2 -->
+    <Color x:Key="amber-accent-2">#ffd740</Color>
+    <SolidColorBrush x:Key="amber-accent-2-brush" Color="{StaticResource amber-accent-2}"></SolidColorBrush>
+
+    <!-- amber accent 3 -->
+    <Color x:Key="amber-accent-3">#ffc400</Color>
+    <SolidColorBrush x:Key="amber-accent-3-brush" Color="{StaticResource amber-accent-3}"></SolidColorBrush>
+
+    <!-- amber accent 4 -->
+    <Color x:Key="amber-accent-4">#ffab00</Color>
+    <SolidColorBrush x:Key="amber-accent-4-brush" Color="{StaticResource amber-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** DEEP ORANGE **************************
+    -->
+
+    <!-- deep orange lighten 5 -->
+    <Color x:Key="deep-orange-lighten-5">#fbe9e7</Color>
+    <SolidColorBrush x:Key="deep-orange-lighten-5-brush" Color="{StaticResource deep-orange-lighten-5}"></SolidColorBrush>
+
+    <!-- deep orange lighten 4 -->
+    <Color x:Key="deep-orange-lighten-4">#ffccbc</Color>
+    <SolidColorBrush x:Key="deep-orange-lighten-4-brush" Color="{StaticResource deep-orange-lighten-4}"></SolidColorBrush>
+
+    <!-- deep orange lighten 3 -->
+    <Color x:Key="deep-orange-lighten-3">#ffab91</Color>
+    <SolidColorBrush x:Key="deep-orange-lighten-3-brush" Color="{StaticResource deep-orange-lighten-3}"></SolidColorBrush>
+
+    <!-- deep orange lighten 2 -->
+    <Color x:Key="deep-orange-lighten-2">#ff8a65</Color>
+    <SolidColorBrush x:Key="deep-orange-lighten-2-brush" Color="{StaticResource deep-orange-lighten-2}"></SolidColorBrush>
+
+    <!-- deep orange lighten 1 -->
+    <Color x:Key="deep-orange-lighten-1">#ff7043</Color>
+    <SolidColorBrush x:Key="deep-orange-lighten-1-brush" Color="{StaticResource deep-orange-lighten-1}"></SolidColorBrush>
+
+    <!-- deep orange -->
+    <Color x:Key="deep-orange">#ff5722</Color>
+    <SolidColorBrush x:Key="deep-orange-brush" Color="{StaticResource deep-orange}"></SolidColorBrush>
+
+    <!-- deep orange darken 1 -->
+    <Color x:Key="deep-orange-darken-1">#f4511e</Color>
+    <SolidColorBrush x:Key="deep-orange-darken-1-brush" Color="{StaticResource deep-orange-darken-1}"></SolidColorBrush>
+
+    <!-- deep orange darken 2 -->
+    <Color x:Key="deep-orange-darken-2">#e64a19</Color>
+    <SolidColorBrush x:Key="deep-orange-darken-2-brush" Color="{StaticResource deep-orange-darken-2}"></SolidColorBrush>
+
+    <!-- deep orange darken 3 -->
+    <Color x:Key="deep-orange-darken-3">#d84315</Color>
+    <SolidColorBrush x:Key="deep-orange-darken-3-brush" Color="{StaticResource deep-orange-darken-3}"></SolidColorBrush>
+
+    <!-- deep orange darken 4 -->
+    <Color x:Key="deep-orange-darken-4">#bf360c</Color>
+    <SolidColorBrush x:Key="deep-orange-darken-4-brush" Color="{StaticResource deep-orange-darken-4}"></SolidColorBrush>
+
+    <!-- deep orange accent 1 -->
+    <Color x:Key="deep-orange-accent-1">#ff9e80</Color>
+    <SolidColorBrush x:Key="deep-orange-accent-1-brush" Color="{StaticResource deep-orange-accent-1}"></SolidColorBrush>
+
+    <!-- deep orange accent 2 -->
+    <Color x:Key="deep-orange-accent-2">#ff6e40</Color>
+    <SolidColorBrush x:Key="deep-orange-accent-2-brush" Color="{StaticResource deep-orange-accent-2}"></SolidColorBrush>
+
+    <!-- deep orange accent 3 -->
+    <Color x:Key="deep-orange-accent-3">#ff3d00</Color>
+    <SolidColorBrush x:Key="deep-orange-accent-3-brush" Color="{StaticResource deep-orange-accent-3}"></SolidColorBrush>
+
+    <!-- deep orange accent 4 -->
+    <Color x:Key="deep-orange-accent-4">#dd2c00</Color>
+    <SolidColorBrush x:Key="deep-orange-accent-4-brush" Color="{StaticResource deep-orange-accent-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** BROWN **************************
+    -->
+
+    <!-- brown lighten 5 -->
+    <Color x:Key="brown-lighten-5">#efebe9</Color>
+    <SolidColorBrush x:Key="brown-lighten-5-brush" Color="{StaticResource brown-lighten-5}"></SolidColorBrush>
+
+    <!-- brown lighten 4 -->
+    <Color x:Key="brown-lighten-4">#d7ccc8</Color>
+    <SolidColorBrush x:Key="brown-lighten-4-brush" Color="{StaticResource brown-lighten-4}"></SolidColorBrush>
+
+    <!-- brown lighten 3 -->
+    <Color x:Key="brown-lighten-3">#bcaaa4</Color>
+    <SolidColorBrush x:Key="brown-lighten-3-brush" Color="{StaticResource brown-lighten-3}"></SolidColorBrush>
+
+    <!-- brown lighten 2 -->
+    <Color x:Key="brown-lighten-2">#a1887f</Color>
+    <SolidColorBrush x:Key="brown-lighten-2-brush" Color="{StaticResource brown-lighten-2}"></SolidColorBrush>
+
+    <!-- brown lighten 1 -->
+    <Color x:Key="brown-lighten-1">#8d6e63</Color>
+    <SolidColorBrush x:Key="brown-lighten-1-brush" Color="{StaticResource brown-lighten-1}"></SolidColorBrush>
+
+    <!-- brown -->
+    <Color x:Key="brown">#795548</Color>
+    <SolidColorBrush x:Key="brown-brush" Color="{StaticResource brown}"></SolidColorBrush>
+
+    <!-- brown darken 1 -->
+    <Color x:Key="brown-darken-1">#6d4c41</Color>
+    <SolidColorBrush x:Key="brown-darken-1-brush" Color="{StaticResource brown-darken-1}"></SolidColorBrush>
+
+    <!-- brown darken 2 -->
+    <Color x:Key="brown-darken-2">#5d4037</Color>
+    <SolidColorBrush x:Key="brown-darken-2-brush" Color="{StaticResource brown-darken-2}"></SolidColorBrush>
+
+    <!-- brown darken 3 -->
+    <Color x:Key="brown-darken-3">#4e342e</Color>
+    <SolidColorBrush x:Key="brown-darken-3-brush" Color="{StaticResource brown-darken-3}"></SolidColorBrush>
+
+    <!-- brown darken 4 -->
+    <Color x:Key="brown-darken-4">#3e2723</Color>
+    <SolidColorBrush x:Key="brown-darken-4-brush" Color="{StaticResource brown-darken-4}"></SolidColorBrush>
+
+
+
+
+    <!--
+    **************************** GREY **************************
+    -->
+
+    <!-- grey lighten 5 -->
+    <Color x:Key="grey-lighten-5">#fafafa</Color>
+    <SolidColorBrush x:Key="grey-lighten-5-brush" Color="{StaticResource grey-lighten-5}"></SolidColorBrush>
+
+    <!-- grey lighten 4 -->
+    <Color x:Key="grey-lighten-4">#f5f5f5</Color>
+    <SolidColorBrush x:Key="grey-lighten-4-brush" Color="{StaticResource grey-lighten-4}"></SolidColorBrush>
+
+    <!-- grey lighten 3 -->
+    <Color x:Key="grey-lighten-3">#eeeeee</Color>
+    <SolidColorBrush x:Key="grey-lighten-3-brush" Color="{StaticResource grey-lighten-3}"></SolidColorBrush>
+
+    <!-- grey lighten 2 -->
+    <Color x:Key="grey-lighten-2">#e0e0e0</Color>
+    <SolidColorBrush x:Key="grey-lighten-2-brush" Color="{StaticResource grey-lighten-2}"></SolidColorBrush>
+
+    <!-- grey lighten 1 -->
+    <Color x:Key="grey-lighten-1">#bdbdbd</Color>
+    <SolidColorBrush x:Key="grey-lighten-1-brush" Color="{StaticResource grey-lighten-1}"></SolidColorBrush>
+
+    <!-- grey -->
+    <Color x:Key="grey">#9e9e9e</Color>
+    <SolidColorBrush x:Key="grey-brush" Color="{StaticResource grey}"></SolidColorBrush>
+
+    <!-- grey darken 1 -->
+    <Color x:Key="grey-darken-1">#757575</Color>
+    <SolidColorBrush x:Key="grey-darken-1-brush" Color="{StaticResource grey-darken-1}"></SolidColorBrush>
+
+    <!-- grey darken 2 -->
+    <Color x:Key="grey-darken-2">#616161</Color>
+    <SolidColorBrush x:Key="grey-darken-2-brush" Color="{StaticResource grey-darken-2}"></SolidColorBrush>
+
+    <!-- grey darken 3 -->
+    <Color x:Key="grey-darken-3">#424242</Color>
+    <SolidColorBrush x:Key="grey-darken-3-brush" Color="{StaticResource grey-darken-3}"></SolidColorBrush>
+
+    <!-- grey darken 4 -->
+    <Color x:Key="grey-darken-4">#212121</Color>
+    <SolidColorBrush x:Key="grey-darken-4-brush" Color="{StaticResource grey-darken-4}"></SolidColorBrush>
+
+
+
+
+
+    <!--
+    **************************** blue-grey **************************
+    -->
+
+    <!-- blue grey lighten 5 -->
+    <Color x:Key="blue-grey-lighten-5">#eceff1</Color>
+    <SolidColorBrush x:Key="blue-grey-lighten-5-brush" Color="{StaticResource blue-grey-lighten-5}"></SolidColorBrush>
+
+    <!-- blue grey lighten 4 -->
+    <Color x:Key="blue-grey-lighten-4">#cfd8dc</Color>
+    <SolidColorBrush x:Key="blue-grey-lighten-4-brush" Color="{StaticResource blue-grey-lighten-4}"></SolidColorBrush>
+
+    <!-- blue grey lighten 3 -->
+    <Color x:Key="blue-grey-lighten-3">#b0bec5</Color>
+    <SolidColorBrush x:Key="blue-grey-lighten-3-brush" Color="{StaticResource blue-grey-lighten-3}"></SolidColorBrush>
+
+    <!-- blue grey lighten 2 -->
+    <Color x:Key="blue-grey-lighten-2">#90a4ae</Color>
+    <SolidColorBrush x:Key="blue-grey-lighten-2-brush" Color="{StaticResource blue-grey-lighten-2}"></SolidColorBrush>
+
+    <!-- blue grey lighten 1 -->
+    <Color x:Key="blue-grey-lighten-1">#78909c</Color>
+    <SolidColorBrush x:Key="blue-grey-lighten-1-brush" Color="{StaticResource blue-grey-lighten-1}"></SolidColorBrush>
+
+    <!-- blue grey -->
+    <Color x:Key="blue-grey">#607d8b</Color>
+    <SolidColorBrush x:Key="blue-grey-brush" Color="{StaticResource blue-grey}"></SolidColorBrush>
+
+    <!-- blue grey darken 1 -->
+    <Color x:Key="blue-grey-darken-1">#546e7a</Color>
+    <SolidColorBrush x:Key="blue-grey-darken-1-brush" Color="{StaticResource blue-grey-darken-1}"></SolidColorBrush>
+
+    <!-- blue grey darken 2 -->
+    <Color x:Key="blue-grey-darken-2">#455a64</Color>
+    <SolidColorBrush x:Key="blue-grey-darken-2-brush" Color="{StaticResource blue-grey-darken-2}"></SolidColorBrush>
+
+    <!-- blue grey darken 3 -->
+    <Color x:Key="blue-grey-darken-3">#37474f</Color>
+    <SolidColorBrush x:Key="blue-grey-darken-3-brush" Color="{StaticResource blue-grey-darken-3}"></SolidColorBrush>
+
+    <!-- blue grey darken 4 -->
+    <Color x:Key="blue-grey-darken-4">#263238</Color>
+    <SolidColorBrush x:Key="blue-grey-darken-4-brush" Color="{StaticResource blue-grey-darken-4}"></SolidColorBrush>
+
+
+
+</ResourceDictionary>

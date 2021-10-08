@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+
+    <!--Font Size-->
+    <system:Double x:Key="Small">12</system:Double>
+    <system:Double x:Key="Regular">16</system:Double>
+    <system:Double x:Key="Large">24</system:Double>
+
+    <!--Base TextBlock-->
+    <Style x:Key="BaseTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
+        <Setter Property="FontSize" Value="{StaticResource Regular}"/>
+    </Style>
+    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlock}"/>
+
+    <!--Base TextBox-->
+    <Style x:Key="BaseTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
+        <Setter Property="FontSize" Value="{StaticResource Regular}"/>
+    </Style>
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBox}"/>
+
+</ResourceDictionary>

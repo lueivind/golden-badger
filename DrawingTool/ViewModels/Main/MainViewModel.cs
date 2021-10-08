@@ -1,22 +1,13 @@
 ﻿using IronPdf;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace DrawingTool
 {
     public class MainViewModel : BaseViewModel
     {
-        #region Private Members
-
-        private bool devMode; 
-
-        #endregion
-
         #region Constructor 
 
         /// <summary>
@@ -72,14 +63,10 @@ namespace DrawingTool
             }
         }
         private PageViewModel currentPage;
-        #endregion
 
-        #region Commands
-
-        #endregion
-
-        #region Helpers
+        public string ApplicationName { get; set; } = "Golden-Badger";
 
         #endregion
+
     }
 }

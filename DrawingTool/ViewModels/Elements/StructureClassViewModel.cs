@@ -18,7 +18,8 @@ namespace DrawingTool
             Name = name;
 
             // collections
-            Graphics = new ObservableCollection<GraphicViewModel>();
+            Lines = new ObservableCollection<LineGraphicViewModel>();
+            PolyLines = new ObservableCollection<PolyLineViewModel>();
         }
 
         #endregion
@@ -28,7 +29,9 @@ namespace DrawingTool
         /// <summary>
         /// Collection of graphical elements.
         /// </summary>
-        public ObservableCollection<GraphicViewModel> Graphics { get; set; }
+        public ObservableCollection<LineGraphicViewModel> Lines { get; private set; }
+
+        public ObservableCollection<PolyLineViewModel> PolyLines { get; private set; }
 
         #endregion
 
@@ -54,14 +57,59 @@ namespace DrawingTool
         public void SetColor(Brush brush)
         {
             ColorBrush = brush;
-            foreach (GraphicViewModel sub in Graphics)
+            foreach (LineGraphicViewModel line in Lines)
             {
-                sub.Line.Stroke = ColorBrush;
+                line.Line.Stroke = ColorBrush;
+            }
+            foreach (PolyLineViewModel polyline in PolyLines)
+            {
+                polyline.Polyline.Stroke = ColorBrush;
+            }
+        }
+
+        public void AddGraphic(GraphicViewModel graphic)
+        {
+            graphic.DeleteGraphic += Graphic_DeleteGraphic;
+            
+            // line
+            if(graphic.GetType() == typeof(LineGraphicViewModel))
+            {
+                Lines.Add((LineGraphicViewModel)graphic);
+            }
+
+            // polyline
+            if (graphic.GetType() == typeof(PolyLineViewModel))
+            {
+                PolyLines.Add((PolyLineViewModel)graphic);
             }
         }
 
         #endregion
 
+        #region Events
+
+        /// <summary>
+        /// Event fired when graphic wants to be deleted.
+        /// </summary>
+        private void Graphic_DeleteGraphic(object source, System.EventArgs args)
+        {
+            GraphicViewModel graphic = (GraphicViewModel)source;
+
+            // line
+            if (graphic.GetType() == typeof(LineGraphicViewModel))
+            {
+                Lines.Remove((LineGraphicViewModel)graphic);
+            }
+
+            // polyline
+            if (graphic.GetType() == typeof(PolyLineViewModel))
+            {
+                PolyLines.Remove((PolyLineViewModel)graphic);
+            }
+
+        }
+
+        #endregion
 
     }
 }

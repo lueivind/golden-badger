@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -87,7 +86,6 @@ namespace DrawingTool
         /// </summary>
         public ICommand AddStructureClassCommand { get; set; }
 
-
         /// <summary>
         /// Command to reset page canvas view.
         /// </summary>
@@ -115,18 +113,22 @@ namespace DrawingTool
 
         #endregion
 
-        #region Helpers
+        #region Methods
 
         /// <summary>
         /// Add new structure class.
         /// </summary>
-        private void AddStructureClass()
+        public void AddStructureClass()
         {
             StructureClassViewModel structureClass = new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString());
             structureClass.SetColor(GetBrush());
             DefaultBrushes.RemoveAt(0);
             StructureClasses.Add(structureClass);
         }
+
+        #endregion
+
+        #region Helpers
 
         /// <summary>
         /// Get a color brush.

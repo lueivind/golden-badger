@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\App.xaml
-3-881894792
+8531798574
 
-13-682817469
+17-1667625261
 17-1323951755
-Views\Controls\GraphicListItemControl.xaml;Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
+Styles\Buttons.xaml;Styles\ColorPalette.xaml;Styles\Colors.xaml;Styles\Grids.xaml;Styles\Text.xaml;Views\Controls\LineListItemControl.xaml;Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
 
 False
 

@@ -63,7 +63,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\Controls\GraphicListItemControl.xaml">
+    <Page Include="Styles\Buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ColorPalette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Grids.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\LineListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -79,14 +99,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DesignModels\LineGraphicDesignModel.cs" />
+    <Compile Include="DesignModels\MainDesignModel.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
-    <Compile Include="ViewModels\Elements\GraphicViewModel.cs" />
+    <Compile Include="ViewModels\Elements\Graphics\Base\GraphicViewModel.cs" />
+    <Compile Include="ViewModels\Elements\Graphics\LineGraphicViewModel.cs" />
+    <Compile Include="ViewModels\Elements\Graphics\PolyLineViewModel.cs" />
     <Compile Include="ViewModels\Elements\PageViewModel.cs" />
     <Compile Include="ViewModels\Elements\StructureClassViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Main\MainViewModel.cs" />
-    <Compile Include="Views\Controls\GraphicListItemControl.xaml.cs">
-      <DependentUpon>GraphicListItemControl.xaml</DependentUpon>
+    <Compile Include="Views\Controls\LineListItemControl.xaml.cs">
+      <DependentUpon>LineListItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\PageCanvas.xaml.cs">
       <DependentUpon>PageCanvas.xaml</DependentUpon>
