@@ -8,26 +8,53 @@
         <Setter Property="Height" Value="40"/>
         <Setter Property="FontSize" Value="{StaticResource Regular}"/>
         <Setter Property="Background" Value="{StaticResource button-background}"/>
-        <Setter Property="Foreground" Value="{StaticResource foreground-level-1}"/>
+        <Setter Property="Foreground" Value="{StaticResource button-foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource button-border}"/>
-        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Padding" Value="10 0"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Cursor" Value="Hand"/>
     </Style>
-    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
+
+    <!--Button-->
+    <Style x:Key="Button" TargetType="{x:Type Button}" BasedOn="{StaticResource BaseButton}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
                             BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="3"
+                            Padding="{TemplateBinding Padding}">
                         <ContentPresenter Content="{TemplateBinding Content}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{StaticResource button-background-hover}"/>
+                        </Trigger>
+                       
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
+                
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{StaticResource button-background-pressed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--ButtonSmall-->
+    <Style x:Key="ButtonSmall" TargetType="{x:Type Button}" BasedOn="{StaticResource Button}">
+        <Setter Property="MinWidth" Value="0"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="{StaticResource Small}"/>
+        <Setter Property="Padding" Value="8 0"/>
     </Style>
 
 

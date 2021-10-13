@@ -8,13 +8,16 @@
     <SolidColorBrush x:Key="background-level-1" Color="{StaticResource blue-grey-darken-2}"></SolidColorBrush>
     <SolidColorBrush x:Key="background-level-2" Color="{StaticResource blue-grey-lighten-2}"></SolidColorBrush>
 
-    <SolidColorBrush x:Key="button-background" Color="{StaticResource grey-darken-4}"></SolidColorBrush>
-    <SolidColorBrush x:Key="button-border" Color="{StaticResource grey-darken-3}"></SolidColorBrush>
-
-
     <!--Foreground-->
     <SolidColorBrush x:Key="foreground-level-0" Color="{StaticResource blue-grey-lighten-5}"></SolidColorBrush>
     <SolidColorBrush x:Key="foreground-level-1" Color="{StaticResource blue-grey-lighten-4}"></SolidColorBrush>
+
+    <!--Buttons-->
+    <SolidColorBrush x:Key="button-background" Color="{StaticResource blue-grey-lighten-3}"></SolidColorBrush>
+    <SolidColorBrush x:Key="button-background-hover" Color="{StaticResource blue-grey-lighten-4}"></SolidColorBrush>
+    <SolidColorBrush x:Key="button-background-pressed" Color="{StaticResource blue-grey-lighten-5}"></SolidColorBrush>
+    <SolidColorBrush x:Key="button-foreground" Color="{StaticResource blue-grey-darken-4}"></SolidColorBrush>
+    <SolidColorBrush x:Key="button-border" Color="{StaticResource blue-grey-lighten-1}"></SolidColorBrush>
 
 
 </ResourceDictionary>

@@ -83,7 +83,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Controls\LineListItemControl.xaml">
+    <Page Include="Views\Controls\ColorSelectorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\ListItems\LineListItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,17 +103,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DesignModels\LineGraphicDesignModel.cs" />
+    <Compile Include="DesignModels\PageDesignModel.cs" />
+    <Compile Include="DesignModels\LineDesignModel.cs" />
     <Compile Include="DesignModels\MainDesignModel.cs" />
+    <Compile Include="Models\ColorBrush.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\Elements\Graphics\Base\GraphicViewModel.cs" />
-    <Compile Include="ViewModels\Elements\Graphics\LineGraphicViewModel.cs" />
-    <Compile Include="ViewModels\Elements\Graphics\PolyLineViewModel.cs" />
+    <Compile Include="ViewModels\Elements\Graphics\LineViewModel.cs" />
     <Compile Include="ViewModels\Elements\PageViewModel.cs" />
     <Compile Include="ViewModels\Elements\StructureClassViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\Main\MainViewModel.cs" />
-    <Compile Include="Views\Controls\LineListItemControl.xaml.cs">
+    <Compile Include="Views\Controls\ColorSelectorControl.xaml.cs">
+      <DependentUpon>ColorSelectorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ListItems\LineListItemControl.xaml.cs">
       <DependentUpon>LineListItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Controls\PageCanvas.xaml.cs">
@@ -138,6 +146,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DevLog.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -150,9 +159,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\1%281%29.png" />
   </ItemGroup>

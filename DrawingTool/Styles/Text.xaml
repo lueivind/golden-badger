@@ -8,18 +8,16 @@
     <system:Double x:Key="Regular">16</system:Double>
     <system:Double x:Key="Large">24</system:Double>
 
-    <!--Base TextBlock-->
-    <Style x:Key="BaseTextBlock" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
+    <!--TextBlock-->
+    <Style x:Key="TextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground"  Value="{StaticResource foreground-level-0}"/>
         <Setter Property="FontSize" Value="{StaticResource Regular}"/>
     </Style>
-    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource BaseTextBlock}"/>
 
-    <!--Base TextBox-->
-    <Style x:Key="BaseTextBox" TargetType="{x:Type TextBox}">
+    <!--TextBox-->
+    <Style x:Key="TextBox" TargetType="{x:Type TextBox}">
         <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
         <Setter Property="FontSize" Value="{StaticResource Regular}"/>
     </Style>
-    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBox}"/>
 
 </ResourceDictionary>

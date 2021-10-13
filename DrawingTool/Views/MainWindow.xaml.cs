@@ -36,20 +36,24 @@ namespace DrawingTool
 
         #endregion
 
+        /// <summary>
+        /// Structure class list selection  changed.
+        /// </summary>
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView list = (ListView)sender;
-            selectedViewModel = (StructureClassViewModel)list.SelectedItem;
+            //ListView list = (ListView)sender;
+            //selectedViewModel = (StructureClassViewModel)list.SelectedItem;
 
-            viewModel.CurrentPage.CurrentStructureClass = (StructureClassViewModel)list.SelectedItem;
+            //viewModel.SetCurrentStructureClass((StructureClassViewModel)list.SelectedItem);
         }
 
+        /// <summary>
+        /// Page list selection changed.
+        /// </summary>
         private void ListViewPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListView list = (ListView)sender;
-            viewModel.CurrentPage = (PageViewModel)list.SelectedItem;
-            //MainCanvas = viewModel.CurrentPage.PageCanvas;
-            //MainCanvas.UpdateDefaultStyle();
+            //ListView list = (ListView)sender;
+            //viewModel.SetCurrentPage((PageViewModel)list.SelectedItem);
         }
     }
 }

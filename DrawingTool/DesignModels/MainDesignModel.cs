@@ -18,9 +18,9 @@ namespace DrawingTool
             if (test)
             {
                 Pages = new ObservableCollection<PageViewModel>();
-                Pages.Add(new PageViewModel("Test1", new BitmapImage()));
-                Pages.Add(new PageViewModel("Test1", new BitmapImage()));
-                Pages.Add(new PageViewModel("Test1", new BitmapImage()));
+                Pages.Add(new PageViewModel("Test1", new BitmapImage(), this));
+                Pages.Add(new PageViewModel("Test1", new BitmapImage(), this));
+                Pages.Add(new PageViewModel("Test1", new BitmapImage(), this));
             }
         }
 

@@ -14,9 +14,14 @@ namespace DrawingTool
         #region Private Members
 
         /// <summary>
-        /// Viewmodel
+        /// Main view model reference.
         /// </summary>
-        private PageViewModel viewModel;
+        private MainViewModel mainViewModel;
+
+        /// <summary>
+        /// Page view model reference.
+        /// </summary>
+        private PageViewModel pageViewModel;
 
         /// <summary>
         /// True if first point of a new line has not been set, ie. if false line command has started.
@@ -47,13 +52,16 @@ namespace DrawingTool
         /// <summary>
         /// Default constructor
         /// </summary>
-        public PageCanvas(PageViewModel viewModel)
+        public PageCanvas(PageViewModel pageViewModel, MainViewModel mainViewModel)
         {
             InitializeComponent();
 
-            // viemodel
-            this.viewModel = viewModel;
-            this.DataContext = this.viewModel;
+            // get pageViewModel
+            this.pageViewModel = pageViewModel;
+            DataContext = this.pageViewModel;
+
+            // get mainViewModel
+            this.mainViewModel = mainViewModel;
 
             // initialize canvas transform
             canvasTranslateTransform = new TranslateTransform();
@@ -82,15 +90,15 @@ namespace DrawingTool
                 {
                     if (isFirstPoint)
                     { 
-                        if (viewModel.CurrentStructureClass == null)
+                        if (mainViewModel.CurrentStructureClass == null)
                             return;
 
                         isFirstPoint = false;
                         Point point = e.GetPosition((Canvas)e.OriginalSource);
                         Line line = new Line();
                         line.IsHitTestVisible = false;
-                        line.Name = "Line" + viewModel.CurrentStructureClass.Lines.Count.ToString();
-                        line.Stroke = viewModel.CurrentStructureClass.ColorBrush;
+                        line.Name = "Line" + mainViewModel.CurrentStructureClass.Lines.Count.ToString();
+                        line.Stroke = mainViewModel.CurrentStructureClass.ColorBrush.Color;
                         line.X1 = point.X;
                         line.Y1 = point.Y;
                         line.X2 = point.X;
@@ -103,7 +111,7 @@ namespace DrawingTool
                         Line line = (Line)pageCanvas.Children[0];
                         line.IsHitTestVisible = true;
                         isFirstPoint = true;
-                        viewModel.CurrentStructureClass.AddGraphic(new LineGraphicViewModel(line.Name, line));
+                        mainViewModel.CurrentStructureClass.AddGraphic(new LineViewModel(line.Name, mainViewModel.CurrentStructureClass, mainViewModel.CurrentPage, line));
                     }
                 }
             }

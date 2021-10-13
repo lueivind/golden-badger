@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Windows.Data;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace DrawingTool
 {
-    public class LineGraphicViewModel : GraphicViewModel
+    public class LineViewModel : GraphicViewModel
     {
 
         #region Constructor
@@ -11,10 +13,14 @@ namespace DrawingTool
         /// <summary>
         /// Default constructor
         /// </summary>
-        public LineGraphicViewModel(string name, Line line) : base(name)
+        public LineViewModel(string name, StructureClassViewModel structureClass, PageViewModel page,  Line line) : base(name, structureClass, page)
         {
             Shape = line;
             Line = line;
+
+            // bind line stroke color to viewmodel color.
+            Line.DataContext = this;
+            Line.SetBinding(Line.StrokeProperty, nameof(ColorBrush) + "." + nameof(ColorBrush.Color));
         }
 
         #endregion

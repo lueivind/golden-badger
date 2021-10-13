@@ -1,169 +1,51 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 
 namespace DrawingTool
 {
-    public class PageViewModel : BaseViewModel
+    public class ColorBrush
     {
-        #region Private Members
-
-        private MainViewModel mainViewModel;
-
-        /// <summary>
-        /// Default color brushes for structure class color.
-        /// </summary>
-        private List<Brush> DefaultBrushes;
-
-        #endregion
-
-        #region Constructor
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public PageViewModel(string name, BitmapImage image, MainViewModel mainViewModel)
+        public ColorBrush(string name, Brush color)
         {
             Name = name;
-            Image = image;
-            this.mainViewModel = mainViewModel;
-
-            // collections
-            StructureClasses = new ObservableCollection<StructureClassViewModel>();
-
-            // lists
-            DefaultBrushes = new List<Brush>();
-
-            // canvas
-            PageCanvas = new PageCanvas(this, this.mainViewModel);
-
-            // commands
-            AddStructureClassCommand = new RelayCommand(AddStructureClass);
-            CanvasResetCommand = new RelayCommand(PageCanvas.Reset);
-            CanvasFitCommand = new RelayCommand(PageCanvas.Fit);
-            CanvasCenterCommand = new RelayCommand(PageCanvas.Center);
-            CanvasZoomInCommand = new RelayCommand(PageCanvas.ZoomIn);
-            CanvasZoomOutCommand = new RelayCommand(PageCanvas.ZoomOut);
-
-            // dummy sctructures classes
-            AddStructureClass();
-            AddStructureClass();
-            AddStructureClass();
-
+            Color = color;
         }
-
-        /// <summary>
-        /// Dummy contructor.
-        /// </summary>
-        public PageViewModel(){}
-
-        #endregion
-
-        #region Collections
-
-        /// <summary>
-        /// Collection of structure classes.
-        /// </summary>
-        public ObservableCollection<StructureClassViewModel> StructureClasses { get; set; }
-
-        #endregion
-
-        #region Public Properties
 
         public string Name { get; set; }
-        public ImageSource ImageSource { get; set; }
 
-        public BitmapImage Image { get; set; }
+        public Brush Color { get; set; }
 
-        //public Canvas PageCanvas { get; set; }
-
-        public PageCanvas PageCanvas { get; set; }
-
-        public StructureClassViewModel CurrentStructureClass { get; set; }
- 
-
-        #endregion
-
-        #region Commands
-
-        /// <summary>
-        /// Command for adding new structure class.
-        /// </summary>
-        public ICommand AddStructureClassCommand { get; set; }
-
-        /// <summary>
-        /// Command to reset page canvas view.
-        /// </summary>
-        public ICommand CanvasResetCommand { get; set; }
-
-        /// <summary>
-        /// Command to make page canvas view fit.
-        /// </summary>
-        public ICommand CanvasFitCommand { get; set; }
-
-        /// <summary>
-        /// Command to center the canvas.
-        /// </summary>
-        public ICommand CanvasCenterCommand { get; set; }
-
-        /// <summary>
-        /// Command to zoom the canvas out.
-        /// </summary>
-        public ICommand CanvasZoomInCommand { get; set; }
-
-        /// <summary>
-        /// Command to zoom the canvas in.
-        /// </summary>
-        public ICommand CanvasZoomOutCommand { get; set; }
-
-        #endregion
-
-        #region Methods
-
-        /// <summary>
-        /// Add new structure class.
-        /// </summary>
-        public void AddStructureClass()
+        public static List<ColorBrush> ColorBrushes()
         {
-            StructureClassViewModel structureClass = new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString());
-            structureClass.SetColor(GetBrush());
-            DefaultBrushes.RemoveAt(0);
-            StructureClasses.Add(structureClass);
+            List<ColorBrush> colorBrushes = new List<ColorBrush>();
+            colorBrushes.Add(new ColorBrush("Red", Brushes.Red));
+            colorBrushes.Add(new ColorBrush("Blue", Brushes.Blue));
+            colorBrushes.Add(new ColorBrush("Green", Brushes.Green));
+            colorBrushes.Add(new ColorBrush("Yellow", Brushes.Yellow));
+            colorBrushes.Add(new ColorBrush("Violet", Brushes.Violet));
+            colorBrushes.Add(new ColorBrush("Indigo", Brushes.Indigo));
+            colorBrushes.Add(new ColorBrush("Orange", Brushes.Orange));
+            colorBrushes.Add(new ColorBrush("Black", Brushes.Black));
+            colorBrushes.Add(new ColorBrush("White", Brushes.White));
+            return colorBrushes;
         }
 
-        /// <summary>
-        /// Set this page as the current page.
-        /// </summary>
-        public void MakeSelfCurrentMake()
+        public static ObservableCollection<ColorBrush> ColorBrushCollection()
         {
-            mainViewModel.SetCurrentPage(this);
+            ObservableCollection<ColorBrush> colorBrushes = new ObservableCollection<ColorBrush>();
+            colorBrushes.Add(new ColorBrush("Red", Brushes.Red));
+            colorBrushes.Add(new ColorBrush("Blue", Brushes.Blue));
+            colorBrushes.Add(new ColorBrush("Green", Brushes.Green));
+            colorBrushes.Add(new ColorBrush("Yellow", Brushes.Yellow));
+            colorBrushes.Add(new ColorBrush("Violet", Brushes.Violet));
+            colorBrushes.Add(new ColorBrush("Indigo", Brushes.Indigo));
+            colorBrushes.Add(new ColorBrush("Orange", Brushes.Orange));
+            colorBrushes.Add(new ColorBrush("Black", Brushes.Black));
+            colorBrushes.Add(new ColorBrush("White", Brushes.White));
+            return colorBrushes;
         }
 
-        #endregion
-
-        #region Helpers
-
-        /// <summary>
-        /// Get a color brush.
-        /// </summary>
-        private Brush GetBrush()
-        {
-            // check if brush list is depleted.
-            if (DefaultBrushes.Count < 1)
-            {
-                // refill brush list.
-                DefaultBrushes = GetBrushes();
-            }
-            // return color brush.
-            return DefaultBrushes[0];
-
-        }
-
-        /// <summary>
-        /// Get list of color brushes.
-        /// </summary>
         private List<Brush> GetBrushes()
         {
             return new List<Brush>()
@@ -311,8 +193,5 @@ namespace DrawingTool
                 Brushes.YellowGreen
             };
         }
-
-        #endregion
-
     }
 }

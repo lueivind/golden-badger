@@ -8,6 +8,81 @@
         d:DataContext="{d:DesignInstance local:MainViewModel}"
         WindowState="Maximized"
         Title="{Binding ApplicationName}" Height="500" Width="1200">
+
+    <Window.Resources>
+
+        <Style x:Key="ColorSelectorComboBox" TargetType="{x:Type ComboBox}">
+          
+        </Style>
+
+            <Style x:Key="StructureClassListViewItem" TargetType="{x:Type ListViewItem}">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0 1"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                        <Border Background="{TemplateBinding Background}"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                                    Padding="{TemplateBinding Padding}">
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <!--Name-->
+                                    <Grid Grid.Column="0">
+                                        <TextBlock Style="{StaticResource TextBlock}" Text="{Binding Name}"/>
+                                    </Grid>
+                                    <!--Actions-->
+                                    <Grid Grid.Column="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ComboBox ItemsSource="{Binding Colors}" SelectedItem="{Binding ColorBrush}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type local:ColorBrush}">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Rectangle Width="20" Height="20" Fill="{Binding Color}"/>
+                                                            <TextBlock Text="{Binding Name}"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                            <Button Style="{StaticResource ButtonSmall}" Content="Hide"/>
+                                            <Button Style="{StaticResource ButtonSmall}" Content="Change Color"/>
+                                            <Border Width="40" Background="{Binding ColorBrush}"></Border>
+                                            <Button Style="{StaticResource ButtonSmall}" Content="Delete"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+                                <!--Lines-->
+                                <TextBlock Text="Lines" Style="{StaticResource TextBlock}"/>
+                                <ItemsControl ItemsSource="{Binding Lines}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate DataType="{x:Type local:LineListItemControl}">
+                                            <Border Margin="3" BorderBrush="Red" BorderThickness="1">
+                                                <local:LineListItemControl DataContext="{Binding}"/>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="#cdcdcd"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="{StaticResource background-level-2}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     
     <Grid Background="{StaticResource background-level-0}">
         <Grid.RowDefinitions>
@@ -18,23 +93,18 @@
         </Grid.RowDefinitions>
 
         <!--Application Menu-->
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Height="80">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-     
 
-                <Grid Grid.Column="0">
-                    <Button Height="80" Content="LOGO"/>
-
-                </Grid>
-                <Grid Grid.Column="1">
-                    <TextBlock FontSize="{StaticResource Large}" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Application Ribbon Menu"/>
-
-                </Grid>
-
-
+            <Grid Grid.Column="0">
+                <Button Style="{StaticResource Button}" Command="{Binding ImportCommand}" Content="Import"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Style="{StaticResource TextBlock}" FontSize="{StaticResource Large}" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Application Ribbon Menu"/>
+            </Grid>
         </Grid>
 
         <!--Application Work Area-->
@@ -70,7 +140,7 @@
             <!-- Page List -->
             <Grid Grid.Column="0" Background="{StaticResource background-level-1}">
 
-                <ListView x:Name="ListViewPages" BorderBrush="{StaticResource background-level-2}" ItemsSource="{Binding Pages}" Background="Transparent" SelectionChanged="ListViewPages_SelectionChanged">
+                <ListView x:Name="ListViewPages" BorderBrush="{StaticResource background-level-2}" ItemsSource="{Binding Pages}" SelectedItem="{Binding CurrentPage}" Background="Transparent" SelectionChanged="ListViewPages_SelectionChanged">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="Background" Value="Transparent"/>
@@ -84,7 +154,7 @@
                                                 BorderThickness="{TemplateBinding BorderThickness}"
                                                 BorderBrush="{TemplateBinding BorderBrush}" >
                                             <StackPanel>
-                                                <TextBlock Text="{Binding Name}"/>
+                                                <TextBlock Style="{StaticResource TextBlock}" Text="{Binding Name}"/>
                                                 <Image HorizontalAlignment="Left" Height="200" Source="{Binding Image}"/>
                                             </StackPanel>
                                         </Border>
@@ -118,99 +188,19 @@
 
                 <Grid Grid.Row="0" >
                     <StackPanel>
-                        <Button Command="{Binding CurrentPage.AddStructureClassCommand}" Content="Add"/>
+                        <Button Style="{StaticResource Button}" Command="{Binding AddStructureClassCommand}" Content="Add"/>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
-                    
-                    
-                    <!--<ListView ItemsSource="{Binding CurrentPage.StructureClasses}" Background="Transparent" SelectionChanged="ListView_SelectionChanged">
-                        <ListView.ItemTemplate>
-                            <DataTemplate DataType="{x:Type local:StructureClassViewModel}">
-                                <StackPanel>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Name}"/>
-                                        <Border Height="20" Width="20" Background="{Binding ColorBrush}"></Border>
-                                    </StackPanel>
-                                    <ItemsControl ItemsSource="{Binding Lines}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate DataType="{x:Type local:LineListItemControl}">
-                                                <Border Margin="3" BorderBrush="Red" BorderThickness="1">
-                                                    <local:LineListItemControl DataContext="{Binding}"/>
-                                                </Border>
-
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>-->
-
-                    <ListView ItemsSource="{Binding CurrentPage.StructureClasses}" BorderBrush="{StaticResource background-level-2}" Background="Transparent" SelectionChanged="ListView_SelectionChanged" Padding="0 5">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListViewItem}">
-                                <Setter Property="Background" Value="Transparent"/>
-                                <Setter Property="BorderThickness" Value="0 1"/>
-                                <Setter Property="BorderBrush" Value="Transparent"/>
-                                <Setter Property="Padding" Value="5"/>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type ListViewItem}">
-                                            <Border Background="{TemplateBinding Background}"
-                                                BorderThickness="{TemplateBinding BorderThickness}"
-                                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                                    Padding="{TemplateBinding Padding}">
-                                                <StackPanel>
-                                                    <Grid>
-                                                        <Grid.ColumnDefinitions>
-                                                            <ColumnDefinition/>
-                                                            <ColumnDefinition Width="Auto"/>
-                                                        </Grid.ColumnDefinitions>
-                                                        <!--Name-->
-                                                        <Grid Grid.Column="0">
-                                                            <TextBlock Text="{Binding Name}"/>
-                                                        </Grid>
-                                                        <!--Actions-->
-                                                        <Grid Grid.Column="1">
-                                                            <StackPanel Orientation="Horizontal">
-                                                                <Button Content="Change Color"/>
-                                                                <Border Width="20" Background="{Binding ColorBrush}"></Border>
-                                                                <Button Content="Delete"/>
-                                                            </StackPanel>
-                                                        </Grid>
-                                                    </Grid>
-                                                    <ItemsControl ItemsSource="{Binding Lines}">
-                                                        <ItemsControl.ItemTemplate>
-                                                            <DataTemplate DataType="{x:Type local:LineListItemControl}">
-                                                                <Border Margin="3" BorderBrush="Red" BorderThickness="1">
-                                                                    <local:LineListItemControl DataContext="{Binding}"/>
-                                                                </Border>
-                                                            </DataTemplate>
-                                                        </ItemsControl.ItemTemplate>
-                                                    </ItemsControl>
-                                                </StackPanel>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="BorderBrush" Value="#cdcdcd"/>
-                                                </Trigger>
-                                                <Trigger Property="IsSelected" Value="True">
-                                                    <Setter Property="Background" Value="{StaticResource background-level-2}"/>
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                    <ListView ItemsSource="{Binding StructureClasses}" 
+                              SelectedItem="{Binding CurrentStructureClass}"
+                              ItemContainerStyle="{StaticResource StructureClassListViewItem}" 
+                              BorderBrush="{StaticResource background-level-2}" 
+                              Background="Transparent" 
+                              SelectionChanged="ListView_SelectionChanged" 
+                              Padding="0 5">
                     </ListView>
-
-
-
                 </Grid>
-
             </Grid>
 
             <GridSplitter Grid.Column="3"/>
@@ -227,17 +217,17 @@
                 <!--Draw Window Menu-->
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal">
-                        <Button Command="{Binding CanvasResetCommand}">Reset</Button>
-                        <Button Command="{Binding CanvasFitCommand}">Fit</Button>
-                        <Button Command="{Binding CanvasCenterCommand}">Center</Button>
-                        <Button Command="{Binding CanvasZoomInCommand}">Zoom In</Button>
-                        <Button Command="{Binding CanvasZoomOutCommand}">Zoom Out</Button>
+                        <Button Style="{StaticResource Button}" Command="{Binding CanvasResetCommand}">Reset</Button>
+                        <Button Style="{StaticResource Button}" Command="{Binding CanvasFitCommand}">Fit</Button>
+                        <Button Style="{StaticResource Button}" Command="{Binding CanvasCenterCommand}">Center</Button>
+                        <Button Style="{StaticResource Button}" Command="{Binding CanvasZoomInCommand}">Zoom In</Button>
+                        <Button Style="{StaticResource Button}" Command="{Binding CanvasZoomOutCommand}">Zoom Out</Button>
                     </StackPanel>
                 </Grid>
 
                 <!--Draw Window-->
                 <Grid Grid.Row="1">
-                    <Border Margin="5" BorderBrush="LightGreen" BorderThickness="2" Background="#343434">
+                    <Border BorderBrush="LightGreen" BorderThickness="2" Background="#343434">
                         <ContentPresenter Content="{Binding PageCanvas}"/>
                     </Border>
                 </Grid>

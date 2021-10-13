@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="DrawingTool.LineListItemControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DrawingTool"
+             mc:Ignorable="d" 
+             d:DataContext="{x:Static local:LineDesignModel.Instance}"
+             
+             d:DesignWidth="600">
+    <Grid Background="Beige">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox ItemsSource="{Binding Colors}" SelectedItem="{Binding ColorBrush}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:ColorBrush}">
+                            <StackPanel Orientation="Horizontal">
+                                <Rectangle Width="20" Height="20" Fill="{Binding Color}"/>
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Style="{StaticResource ButtonSmall}" Content="Hide" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <Button Style="{StaticResource ButtonSmall}" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <Button Style="{StaticResource ButtonSmall}" Content="Go To Page" Command="{Binding GoToPageCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <Button Style="{StaticResource ButtonSmall}" Content="Test" Command="{Binding TestCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+                <!--Coordinate-->
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Margin" Value="2"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <TextBlock Text="[ "/>
+                    <TextBlock Text="{Binding Line.X1, StringFormat=N2}"/>
+                    <TextBlock Text=","/>
+                    <TextBlock Text="{Binding Line.Y1, StringFormat=N2}"/>
+                    <TextBlock Text=" ]"/>
+                    <TextBlock Text=" - "/>
+                    <TextBlock Text="[ "/>
+                    <TextBlock Text="{Binding Line.X2, StringFormat=N2}"/>
+                    <TextBlock Text=","/>
+                    <TextBlock Text="{Binding Line.Y2, StringFormat=N2}"/>
+                    <TextBlock Text=" ]"/>
+                    <TextBlock Text=" --> "/>
+                    <TextBlock Text="| Length"/>
+                    <TextBlock Text="{Binding Length, StringFormat=N2}"/>
+                    <TextBlock Text="| Scaled"/>
+                    <TextBlock Text="{Binding Length, StringFormat=N2}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+
+     
+    </Grid>
+</UserControl>

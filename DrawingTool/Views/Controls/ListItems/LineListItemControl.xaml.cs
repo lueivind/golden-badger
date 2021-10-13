@@ -7,15 +7,6 @@ namespace DrawingTool
     /// </summary>
     public partial class LineListItemControl : UserControl
     {
-        #region Private Members
-
-        /// <summary>
-        /// Controll viewmodel.
-        /// </summary>
-        GraphicViewModel _viewModel;
-
-        #endregion
-
         #region Contructor 
 
         /// <summary>
