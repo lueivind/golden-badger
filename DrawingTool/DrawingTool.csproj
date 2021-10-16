@@ -79,7 +79,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ItemControls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\TreeViews.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -106,7 +114,9 @@
     <Compile Include="DesignModels\PageDesignModel.cs" />
     <Compile Include="DesignModels\LineDesignModel.cs" />
     <Compile Include="DesignModels\MainDesignModel.cs" />
+    <Compile Include="IExplorerItem.cs" />
     <Compile Include="Models\ColorBrush.cs" />
+    <Compile Include="StructureExplorer.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\Elements\Graphics\Base\GraphicViewModel.cs" />
     <Compile Include="ViewModels\Elements\Graphics\LineViewModel.cs" />
@@ -159,7 +169,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\1%281%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\1%282%29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1%281%29.png" />
   </ItemGroup>

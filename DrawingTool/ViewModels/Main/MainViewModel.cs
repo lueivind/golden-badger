@@ -19,10 +19,12 @@ namespace DrawingTool
         /// </summary>
         private List<Brush> DefaultBrushes;
 
-        private bool importPdfOnLoad = true;
+        private bool importPdfOnLoad = false;
         private readonly string importPdfOnLoadPath = "Resources/test.pdf";
 
         private string fileName;
+
+        private bool devMode = true;
 
         #endregion
 
@@ -36,8 +38,17 @@ namespace DrawingTool
             // initalize
             intialize();
 
+            //
+            if (devMode)
+            {
+                string file1 = Path.Combine(Environment.CurrentDirectory, "Resources\\1(1).png");
+                AddPageFromPNG(file1);
+                string file2 = Path.Combine(Environment.CurrentDirectory, "Resources\\1(2).png");
+                AddPageFromPNG(file2);
+                CurrentPage = Pages[0];
+            }
             // import pdf on start
-            if (importPdfOnLoad)
+            else if (importPdfOnLoad)
             {
                 ConvertPDF(importPdfOnLoadPath);
             }
@@ -57,9 +68,9 @@ namespace DrawingTool
             AddStructureClassCommand = new RelayCommand(AddStructureClass);
 
             // dummy sctructures classes
-            AddStructureClass();
-            AddStructureClass();
-            AddStructureClass();
+            AddStructureClass("Lett Vegg");
+            AddStructureClass("Tung Vegg");
+            AddStructureClass("Halv Vegg");
         }
 
         #endregion
@@ -190,12 +201,43 @@ namespace DrawingTool
             }
         }
 
+        private void AddPageFromPNG(string filename)
+        {
+            //var pdf = PdfDocument.FromFile(filename);
+            //string[] strings = pdf.RasterizeToImageFiles("*.png");
+
+            //foreach (string s in strings)
+            //{
+  
+            //}
+
+            var uri = new Uri(filename);
+
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = uri;
+            image.EndInit();
+
+            PageViewModel page = new PageViewModel("Page" + Pages.Count.ToString(), image, this);
+            Pages.Add(page);
+        }
+
         /// <summary>
         /// Add new structure class.
         /// </summary>
         private void AddStructureClass()
         {
             StructureClasses.Add(new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString()));
+        }
+
+
+        /// <summary>
+        /// Add new structure class.
+        /// </summary>
+        /// <param name="name">Name of structure class.</param>
+        private void AddStructureClass(string name)
+        {
+            StructureClasses.Add(new StructureClassViewModel(name));
         }
 
         #endregion

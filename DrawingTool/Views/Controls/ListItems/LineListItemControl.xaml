@@ -29,7 +29,6 @@
                 <Button Style="{StaticResource ButtonSmall}" Content="Hide" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <Button Style="{StaticResource ButtonSmall}" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <Button Style="{StaticResource ButtonSmall}" Content="Go To Page" Command="{Binding GoToPageCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-                <Button Style="{StaticResource ButtonSmall}" Content="Test" Command="{Binding TestCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Column="0" VerticalAlignment="Center">

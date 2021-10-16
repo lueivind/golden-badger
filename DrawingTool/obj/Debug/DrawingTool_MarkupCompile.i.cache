@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\App.xaml
-9-618673436
+11-1818147883
 
-201061271336
+22-1291747133
 17-1323951755
-Styles\Buttons.xaml;Styles\ColorPalette.xaml;Styles\Colors.xaml;Styles\Grids.xaml;Styles\Text.xaml;Views\Controls\ColorSelectorControl.xaml;Views\Controls\ListItems\LineListItemControl.xaml;Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
+Styles\Buttons.xaml;Styles\ColorPalette.xaml;Styles\Colors.xaml;Styles\Grids.xaml;Styles\ItemControls.xaml;Styles\Text.xaml;Styles\TreeViews.xaml;Views\Controls\ColorSelectorControl.xaml;Views\Controls\ListItems\LineListItemControl.xaml;Views\Controls\PageCanvas.xaml;Views\MainWindow.xaml;
 
-True
+False
 

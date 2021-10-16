@@ -11,6 +11,8 @@
                 <ResourceDictionary Source="Styles/Text.xaml"/>
                 <ResourceDictionary Source="Styles/Buttons.xaml"/>
                 <ResourceDictionary Source="Styles/Grids.xaml"/>
+                <ResourceDictionary Source="Styles/ItemControls.xaml"/>
+                <ResourceDictionary Source="Styles/TreeViews.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
