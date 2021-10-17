@@ -19,5 +19,7 @@
         <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
         <Setter Property="FontSize" Value="{StaticResource Regular}"/>
     </Style>
+    
+    <!--Structure Explorer Item Texblock-->
 
 </ResourceDictionary>

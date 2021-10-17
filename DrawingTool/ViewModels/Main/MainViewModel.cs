@@ -67,6 +67,8 @@ namespace DrawingTool
             ImportCommand = new RelayCommand(Import);
             AddStructureClassCommand = new RelayCommand(AddStructureClass);
 
+            StructureExplorer = new StructureExplorerViewModel();
+
             // dummy sctructures classes
             AddStructureClass("Lett Vegg");
             AddStructureClass("Tung Vegg");
@@ -115,6 +117,8 @@ namespace DrawingTool
         /// Currently selected structure class.
         /// </summary>
         public StructureClassViewModel CurrentStructureClass { get; set; }
+
+        public StructureExplorerViewModel StructureExplorer { get; set; }
 
         #endregion
 
@@ -227,7 +231,7 @@ namespace DrawingTool
         /// </summary>
         private void AddStructureClass()
         {
-            StructureClasses.Add(new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString()));
+            //StructureClasses.Add(new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString()));
         }
 
 
@@ -237,7 +241,7 @@ namespace DrawingTool
         /// <param name="name">Name of structure class.</param>
         private void AddStructureClass(string name)
         {
-            StructureClasses.Add(new StructureClassViewModel(name));
+            //StructureClasses.Add(new StructureClassViewModel(name));
         }
 
         #endregion

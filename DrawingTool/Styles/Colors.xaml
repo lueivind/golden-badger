@@ -19,5 +19,12 @@
     <SolidColorBrush x:Key="button-foreground" Color="{StaticResource blue-grey-darken-4}"></SolidColorBrush>
     <SolidColorBrush x:Key="button-border" Color="{StaticResource blue-grey-lighten-1}"></SolidColorBrush>
 
+    <!--TreeViewItem-->
+    <SolidColorBrush x:Key="treeviewitem-background-hover" Color="{StaticResource blue-grey-lighten-5}"></SolidColorBrush>
+    <SolidColorBrush x:Key="treeviewitem-background-selected" Color="{StaticResource blue-grey-lighten-4}"></SolidColorBrush>
+    <SolidColorBrush x:Key="treeviewitem-background-active" Color="{StaticResource amber-lighten-2}"></SolidColorBrush>
+
+
+
 
 </ResourceDictionary>

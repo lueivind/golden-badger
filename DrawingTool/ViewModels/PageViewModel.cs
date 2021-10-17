@@ -127,10 +127,10 @@ namespace DrawingTool
         /// </summary>
         public void AddStructureClass()
         {
-            StructureClassViewModel structureClass = new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString());
-            structureClass.SetColor(GetBrush());
-            DefaultBrushes.RemoveAt(0);
-            StructureClasses.Add(structureClass);
+            //StructureClassViewModel structureClass = new StructureClassViewModel("Structure Class " + StructureClasses.Count.ToString());
+            //structureClass.SetColor(GetBrush());
+            //DefaultBrushes.RemoveAt(0);
+            //StructureClasses.Add(structureClass);
         }
 
         /// <summary>

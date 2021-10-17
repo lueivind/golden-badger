@@ -90,15 +90,15 @@ namespace DrawingTool
                 {
                     if (isFirstPoint)
                     { 
-                        if (mainViewModel.CurrentStructureClass == null)
+                        if (mainViewModel.StructureExplorer.ActiveStructureClass == null)
                             return;
 
                         isFirstPoint = false;
                         Point point = e.GetPosition((Canvas)e.OriginalSource);
                         Line line = new Line();
                         line.IsHitTestVisible = false;
-                        line.Name = "Line" + mainViewModel.CurrentStructureClass.Lines.Count.ToString();
-                        line.Stroke = mainViewModel.CurrentStructureClass.ColorBrush.Color;
+                        line.Name = "Line" + mainViewModel.StructureExplorer.ActiveStructureClass.Lines.Count.ToString();
+                        line.Stroke = mainViewModel.StructureExplorer.ActiveStructureClass.ColorBrush.Color;
                         line.X1 = point.X;
                         line.Y1 = point.Y;
                         line.X2 = point.X;
@@ -111,7 +111,7 @@ namespace DrawingTool
                         Line line = (Line)pageCanvas.Children[0];
                         line.IsHitTestVisible = true;
                         isFirstPoint = true;
-                        mainViewModel.CurrentStructureClass.AddGraphic(new LineViewModel(line.Name, mainViewModel.CurrentStructureClass, mainViewModel.CurrentPage, line));
+                        mainViewModel.StructureExplorer.ActiveStructureClass.AddGraphic(new LineViewModel(line.Name, mainViewModel.StructureExplorer.ActiveStructureClass, mainViewModel.CurrentPage, line));
                     }
                 }
             }

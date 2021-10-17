@@ -12,13 +12,12 @@
     <Window.Resources>
 
     </Window.Resources>
-    
+
     <Grid Background="{StaticResource background-level-0}">
         <Grid.RowDefinitions>
             <!--Application Menu-->
             <RowDefinition Height="Auto"/>
-            <!--Application Work Area-->
-            <RowDefinition/>
+            <!--Main Content-->
             <RowDefinition/>
         </Grid.RowDefinitions>
 
@@ -37,37 +36,26 @@
             </Grid>
         </Grid>
 
-        <!--Application Work Area-->
+        <!--Main Content-->
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                
                 <!--Page List-->
-                <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+                <ColumnDefinition Width="Auto" MinWidth="50"></ColumnDefinition>
+                <!--Grid Splitter-->
                 <ColumnDefinition Width="5"></ColumnDefinition>
-
-                <!-- Structure Class List -->
-                <ColumnDefinition Width="Auto" MinWidth="200"></ColumnDefinition>
+                <!--Structure Class Explorer-->
+                <ColumnDefinition Width="Auto" MinWidth="50"></ColumnDefinition>
+                <!--Grid Splitter-->
                 <ColumnDefinition Width="5"></ColumnDefinition>
-                
-                <!--Page Window-->
+                <!--Canvas-->
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <!-- Page List --><!--
-            <Grid Grid.Column="0" Background="{StaticResource background-level-1}">
-                <ListView x:Name="ListViewPages" ItemsSource="{Binding Pages}" Background="Transparent" SelectionChanged="ListViewPages_SelectionChanged">
-                    <ListView.ItemTemplate>
-                        <DataTemplate DataType="{x:Type local:PageViewModel}">
-                            <StackPanel>
-                                <TextBlock Text="{Binding Name}"/>
-                                <Image Height="200" Source="{Binding Image}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>-->
+            <!--Grid Splitters-->
+            <GridSplitter Grid.Column="1"/>
+            <GridSplitter Grid.Column="3"/>
 
-            <!-- Page List -->
+            <!--Page List-->
             <Grid Grid.Column="0" Background="{StaticResource background-level-1}">
 
                 <ListView x:Name="ListViewPages" BorderBrush="{StaticResource background-level-2}" ItemsSource="{Binding Pages}" SelectedItem="{Binding CurrentPage}" Background="Transparent" SelectionChanged="ListViewPages_SelectionChanged">
@@ -104,55 +92,162 @@
                         </Style>
                     </ListView.ItemContainerStyle>
                 </ListView>
-                
+
             </Grid>
 
-            <GridSplitter Grid.Column="1"/>
-
+            <!--Structure Class Explorer-->
             <Grid Grid.Column="2" Background="{StaticResource background-level-1}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <!--Explorer-->
+                    <RowDefinition/>
+                    <!--Grid Splitter-->
+                    <RowDefinition Height="5"/>
+                    <!--Structure Class Properties-->
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <!--Grid Splitters-->
+                <GridSplitter Grid.Row="1"/>
 
-                <Grid Grid.Row="0" >
-                    <StackPanel>
-                        <Button Style="{StaticResource Button}" Command="{Binding AddStructureClassCommand}" Content="Add"/>
-                    </StackPanel>
+                <!--Explorer-->
+                <Grid Grid.Row="0" Background="{StaticResource amber-lighten-5-brush}">
+                    <TreeView x:Name="StructureExplorerTreeView" ItemsSource="{Binding StructureExplorer.Children}">
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource ExplorerItem}">
+                                <EventSetter Event="TreeViewItem.MouseMove" Handler="TreeViewItem_MouseMove"/>
+                                <EventSetter Event="TreeViewItem.PreviewMouseLeftButtonDown" Handler="TreeViewItem_PreviewMouseLeftButtonDown"/>
+                                <EventSetter Event="TreeViewItem.Drop" Handler="TreeViewItem_Drop"/>
+                                <EventSetter Event="TreeViewItem.DragOver" Handler="TreeViewItem_DragOver"/>
+                                <EventSetter Event="TreeViewItem.GiveFeedback" Handler="TreeViewItem_GiveFeedback"/>
+                                <EventSetter Event="TreeViewItem.MouseDoubleClick" Handler="TreeViewItem_MouseDoubleClick"/>
+                                <Setter Property="AllowDrop" Value="True"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                <Setter Property="IsExpanded" Value="True"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+                        <TreeView.Resources>
+
+                            <!--Explorer TextBox-->
+                            <Style x:Key="ExplorerTextBox" TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="5 0"/>
+                            </Style>
+
+                            <!--Folder DataTemplate-->
+                            <HierarchicalDataTemplate DataType="{x:Type local:FolderViewModel}" ItemsSource="{Binding Children}">
+                                <HierarchicalDataTemplate.Resources>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ExplorerTextBox}"/>
+                                </HierarchicalDataTemplate.Resources>
+                                <Grid Background="Transparent" Height="{StaticResource StructureExplorerItemHeight}">
+                                    <Grid.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Add Folder" Command="{Binding AddFolderCommand}"/>
+                                            <MenuItem Header="Add Structure" Command="{Binding AddStructureClassCommand}"/>
+                                            <MenuItem Header="Delete" Command="{Binding DeleteCommand}"/>
+                                        </ContextMenu>
+                                    </Grid.ContextMenu>
+                                    <!-- Header -->
+                                    <StackPanel Orientation="Horizontal" Height="20">
+                                        <Image Source="/Icons/folder.png"/>
+                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Grid>
+                            </HierarchicalDataTemplate>
+
+                            <!--Structure DataTemplate-->
+                            <DataTemplate DataType="{x:Type local:StructureClassViewModel}">
+                                <DataTemplate.Resources>
+                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ExplorerTextBox}"/>
+                                </DataTemplate.Resources>
+
+                                <Grid Height="{StaticResource StructureExplorerItemHeight}">
+                                    <Grid.Style>
+                                        <Style TargetType="{x:Type Grid}">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                    <Setter Property="Background" Value="{StaticResource treeviewitem-background-active}"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsActive}" Value="False">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+                                    <Grid.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="Delete" Command="{Binding DeleteCommand}"/>
+                                            <MenuItem Header="Set As Active Structure Class" Command="{Binding MakeActiveCommand}"/>
+                                            <MenuItem Header="Rename" Command="{Binding RenameCommand}"/>
+                                        </ContextMenu>
+                                    </Grid.ContextMenu>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Left Column -->
+                                    <Grid Grid.Column="0">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="/Icons/wall.png"/>
+                                            <TextBlock Text="{Binding Name}" Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}}" />
+                                            <TextBox Text="{Binding Name}" 
+                                                 Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}, ConverterParameter=True}" 
+                                                 local:FocusBehavior.HasFocus="{Binding Renaming, Mode=TwoWay}"
+                                />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!-- Rgith Column -->
+                                    <Grid Grid.Column="1">
+                                        <StackPanel Orientation="Horizontal">
+                                            <ComboBox ItemsSource="{Binding Colors}" SelectedItem="{Binding ColorBrush}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate DataType="{x:Type local:ColorBrush}">
+                                                        <StackPanel Orientation="Horizontal">
+                                                            <Rectangle Width="20" Fill="{Binding Color}"/>
+                                                            <TextBlock Text="{Binding Name}"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+
+                                </Grid>
+                            </DataTemplate>
+
+                        </TreeView.Resources>
+                    </TreeView>
                 </Grid>
-                <Grid Grid.Row="1">
-                    <!--<ListView ItemsSource="{Binding StructureClasses}" 
-                              SelectedItem="{Binding CurrentStructureClass}"
-                              ItemContainerStyle="{StaticResource StructureClassListViewItem}" 
-                              BorderBrush="{StaticResource background-level-2}" 
-                              Background="Transparent" 
-                              SelectionChanged="ListView_SelectionChanged" 
-                              Padding="0 5">
-                    </ListView>-->
-                    <ListView ItemsSource="{Binding StructureClasses}" 
-                              SelectedItem="{Binding CurrentStructureClass}"
-                              ItemContainerStyle="{StaticResource StructureClassListViewItem}" 
-                              BorderBrush="{StaticResource background-level-2}" 
-                              Background="Transparent" 
-                              SelectionChanged="ListView_SelectionChanged" 
-                              Padding="0 5">
-                    </ListView>
+
+                <!--Structure Class Properties-->
+                <Grid Grid.Row="2" DataContext="{Binding StructureExplorer.ActiveStructureClass}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" Foreground="AliceBlue"/>
+                        <ListView ItemsSource="{Binding Lines}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate DataType="{x:Type local:LineListItemControl}">
+                                    <Border Margin="3" BorderBrush="Red" BorderThickness="1">
+                                        <local:LineListItemControl DataContext="{Binding}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
                 </Grid>
             </Grid>
 
-            <GridSplitter Grid.Column="3"/>
-
-            <!--Page Window-->
+            <!--Canvas-->
             <Grid Grid.Column="4" DataContext="{Binding CurrentPage}" Background="{StaticResource background-level-1}">
                 <Grid.RowDefinitions>
-                    <!--Draw Window Menu-->
+                    <!--Canvas Menu-->
                     <RowDefinition Height="Auto"/>
-                    <!--Draw Window-->
+                    <!--Canvas-->
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <!--Draw Window Menu-->
+                <!--Canvas Menu-->
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal">
                         <Button Style="{StaticResource Button}" Command="{Binding CanvasResetCommand}">Reset</Button>
@@ -163,7 +258,7 @@
                     </StackPanel>
                 </Grid>
 
-                <!--Draw Window-->
+                <!--Canvas-->
                 <Grid Grid.Row="1">
                     <Border BorderBrush="LightGreen" BorderThickness="2" Background="#343434">
                         <ContentPresenter Content="{Binding PageCanvas}"/>
@@ -171,15 +266,6 @@
                 </Grid>
 
             </Grid>
-
-
         </Grid>
-        
-        <!--Structure Explorer-->
-        <Grid Grid.Row="2" Background="{StaticResource amber-lighten-5-brush}">
-            
-        </Grid>
-        
     </Grid>
-  
 </Window>

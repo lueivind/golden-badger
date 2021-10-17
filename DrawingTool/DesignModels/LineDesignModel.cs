@@ -20,7 +20,7 @@ namespace DrawingTool
         /// <summary>
         /// Design instance.
         /// </summary>
-        public static LineDesignModel Instance { get; } = new LineDesignModel("Line Design Model", new StructureClassViewModel(), new PageViewModel(), new Line());
+        public static LineDesignModel Instance { get; } = new LineDesignModel("Line Design Model", new StructureClassViewModel("Structure Class View Model", new StructureExplorerViewModel()), new PageViewModel(), new Line());
 
     }
 }

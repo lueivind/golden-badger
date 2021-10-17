@@ -4,19 +4,13 @@ namespace DrawingTool
 {
     public interface IExplorerItem
     {
-        string Name { get; }
-
-        Type Type { get; }
-
-        /// <summary>
-        /// Event based on delete, can be subscribed to.
-        /// </summary>
+        ExplorerItemType Type { get; }
 
         event EventHandler Delete;
         void DeleteSelf();
     }
 
-    public enum Type
+    public enum ExplorerItemType
     {
         Folder,
         StructureClass
