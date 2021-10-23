@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -10,17 +11,46 @@ namespace DrawingTool
 {
     public class LineViewModel : GraphicViewModel
     {
-        private MainViewModel mainViewModel;
-
         #region Constructor
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public LineViewModel(string name, StructureClassViewModel structureClass, PageViewModel page,  Line line) : base(name, structureClass, page)
+        public LineViewModel(Canvas canvas, MainViewModel viewModel, Line line) : base(canvas, viewModel)
         {
-            Shape = line;
             Line = line;
+            Shape = line;
+            Name = "Line";
+
+            // add self to structure class
+            MainViewModel.StructureExplorer.ActiveStructureClass.AddGraphic(this);
+
+            // create overlay canvas for line element, use parent canvas dimensions
+            GraphicOverlayCanvas = new Canvas();
+            GraphicOverlayCanvas.Height = ParentCanvas.ActualHeight;
+            GraphicOverlayCanvas.Width = ParentCanvas.ActualWidth;
+            GraphicOverlayCanvas.DataContext = this;
+            // add overlay canvas to parent canvas
+            ParentCanvas.Children.Add(GraphicOverlayCanvas);
+
+            // construct and add elements to overlay canvas
+            Line.Stroke = ColorBrush.Color;
+            GraphicOverlayCanvas.Children.Add(Line);
+            OverlayLine = new Line()
+            {
+                X1 = Line.X1,
+                X2 = Line.X2,
+                Y1 = Line.Y1,
+                Y2 = Line.Y2,
+                StrokeThickness = 10,
+                Opacity = 0.3,
+                Stroke = Brushes.AliceBlue,
+                Cursor = Cursors.Hand,
+
+         
+        };
+            OverlayLine.SetValue(Canvas.ZIndexProperty, 2);
+            GraphicOverlayCanvas.Children.Add(OverlayLine);
 
             // collections
             OverlayShapes = new List<Shape>();
@@ -28,6 +58,7 @@ namespace DrawingTool
             // bind line stroke color to viewmodel color.
             Line.DataContext = this;
             Line.Focusable = true;
+            Line.SetValue(Canvas.ZIndexProperty, 1);
             Line.SetBinding(Line.StrokeProperty, nameof(ColorBrush) + "." + nameof(ColorBrush.Color));
             Line.MouseDown += Line_MouseDown;
             Line.MouseEnter += Line_MouseEnter;
@@ -36,8 +67,47 @@ namespace DrawingTool
             Line.LostFocus += Line_LostFocus;
             Line.MouseMove += Line_MouseMove;
             Line.Cursor = Cursors.Hand;
+
+            OverlayLine.MouseEnter += OverlayLine_MouseEnter;
+            OverlayLine.MouseLeave += OverlayLine_MouseLeave;
+            OverlayLine.MouseDown += OverlayLine_MouseDown;
+
         }
 
+        private void OverlayLine_MouseLeave(object sender, MouseEventArgs e)
+        {
+            foreach (Shape s in OverlayShapes)
+            {
+                GraphicOverlayCanvas.Children.Remove(s);
+            }
+        }
+
+        private void OverlayLine_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                Select();
+            }
+        }
+
+        private void OverlayLine_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (IsSelected)
+            {
+                Ellipse ellipse = new Ellipse();
+                ellipse.Height = 20;
+                ellipse.Width = 20;
+                ellipse.Stroke = Brushes.Black;
+                ellipse.Style = (Style)Application.Current.Resources["EndPointEllipse"];
+                ellipse.SetValue(Canvas.LeftProperty, Line.X1 - (ellipse.Width / 2));
+                ellipse.SetValue(Canvas.TopProperty, Line.Y1 - (ellipse.Height / 2));
+                ellipse.SetValue(Canvas.ZIndexProperty, 0);
+                // !!!!!!!!!!!!!!!!! breaks MVVM
+     
+                OverlayShapes.Add(ellipse);
+                GraphicOverlayCanvas.Children.Add(ellipse);
+            }
+        }
 
         public override void Select()
         {
@@ -60,6 +130,8 @@ namespace DrawingTool
         /// Graphical element
         /// </summary>
         public Line Line { get; private set; }
+
+        public Line OverlayLine { get; private set; }
 
         /// <summary>
         /// Absolute length of element
@@ -100,26 +172,13 @@ namespace DrawingTool
 
         private void Line_MouseMove(object sender, MouseEventArgs e)
         {
-            if (IsSelected)
-            {
-                Ellipse ellipse = new Ellipse();
-                ellipse.Height = 20;
-                ellipse.Width = 20;
-                ellipse.Stroke = Brushes.Black;
-                ellipse.SetValue(Canvas.LeftProperty, Line.X1 - (ellipse.Width / 2));
-                ellipse.SetValue(Canvas.TopProperty, Line.Y1 - (ellipse.Height / 2));
-                OverlayShapes.Add(ellipse);
-                Page.PageCanvas.pageCanvas.Children.Add(ellipse);
-            }
+ 
 
         }
 
         private void Line_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            foreach(Shape s in OverlayShapes)
-            {
-                Page.PageCanvas.pageCanvas.Children.Remove(s);
-            }
+
         }
 
         private void Line_LostFocus(object sender, System.Windows.RoutedEventArgs e)
@@ -138,10 +197,7 @@ namespace DrawingTool
 
         private void Line_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
-            {
-                Select();
-            }
+  
         }
 
         #endregion

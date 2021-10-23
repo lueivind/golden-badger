@@ -13,27 +13,29 @@ namespace DrawingTool
     /// </summary>
     public class GraphicViewModel : BaseViewModel
     {
+    
 
         #region Constructor
 
         /// <summary>
         /// Default constructor
         /// </summary>
-        public GraphicViewModel(string name, StructureClassViewModel structureClass, PageViewModel page)
+        public GraphicViewModel(Canvas canvas, MainViewModel viewModel)
         {
-            Name = name;
-            Page = page;
+            MainViewModel = viewModel;
+            ParentCanvas = canvas;
+            ParentPage = viewModel.CurrentPage;
 
             // commands
             DeleteCommand = new RelayCommand(OnDeleteGraphics);
             GoToPageCommand = new RelayCommand(GoToPage);
 
             // subscribe to events
-            structureClass.ColorChanged += StructureClass_ColorChanged;
+            MainViewModel.StructureExplorer.ActiveStructureClass.ColorChanged += StructureClass_ColorChanged;
 
             // color
             Colors = ColorBrush.ColorBrushCollection();
-            Colors.Insert(0, new ColorBrush("By Structure Class", structureClass.ColorBrush.Color));
+            Colors.Insert(0, new ColorBrush("By Structure Class", MainViewModel.StructureExplorer.ActiveStructureClass.ColorBrush.Color));
             ColorBrush = Colors[0];
         }
 
@@ -50,6 +52,12 @@ namespace DrawingTool
         /// Name of element
         /// </summary>
         public string Name { get; set; }
+
+        public Canvas ParentCanvas { get; set; }
+
+        public Canvas GraphicOverlayCanvas { get; set; }
+
+     public MainViewModel MainViewModel { get; private set; }
 
         /// <summary>
         /// Shape is selected in canvas.
@@ -99,7 +107,7 @@ namespace DrawingTool
         /// <summary>
         /// Page in which this graphic exist.
         /// </summary>
-        public PageViewModel Page { get; private set; }
+        public PageViewModel ParentPage { get; private set; }
 
         #endregion
 
@@ -124,7 +132,7 @@ namespace DrawingTool
         /// </summary>
         private void GoToPage()
         {
-            Page.MakeSelfCurrentMake();
+            ParentPage.MakeSelfCurrentMake();
         }
 
 
@@ -185,9 +193,11 @@ namespace DrawingTool
         /// </summary>
         protected virtual void OnDeleteGraphics()
         {
-            // delete line from canvas
-            Canvas canvas = (Canvas)Shape.Parent;
-            canvas.Children.Remove(Shape);
+            // delete this graphci from the page canvas.
+            if(GraphicOverlayCanvas.Parent is Canvas canvas)
+            {
+                canvas.Children.Remove(GraphicOverlayCanvas);
+            }
 
             // delete viewmodel
             DeleteGraphic?.Invoke(this, EventArgs.Empty);

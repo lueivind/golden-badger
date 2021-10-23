@@ -174,3 +174,5 @@ C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\D
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.CoreCompileInputs.cache
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.exe
 C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.pdb
+C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\DrawingTool.csproj.AssemblyReference.cache
+C:\Programmering\PersonalProjects\C#\_TestProjects\DrawingTool\DrawingTool\obj\Debug\Styles\Shapes.baml

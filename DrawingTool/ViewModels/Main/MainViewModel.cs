@@ -116,7 +116,7 @@ namespace DrawingTool
         /// <summary>
         /// Currently selected structure class.
         /// </summary>
-        public StructureClassViewModel CurrentStructureClass { get; set; }
+        //public StructureClassViewModel CurrentStructureClass { get; set; }
 
         public StructureExplorerViewModel StructureExplorer { get; set; }
 
@@ -149,10 +149,10 @@ namespace DrawingTool
         /// <summary>
         /// Set current structure class.
         /// </summary>
-        public void SetCurrentStructureClass(StructureClassViewModel structureClass)
-        {
-            CurrentStructureClass = structureClass;
-        }
+        //public void SetCurrentStructureClass(StructureClassViewModel structureClass)
+        //{
+        //    CurrentStructureClass = structureClass;
+        //}
 
         #endregion
 

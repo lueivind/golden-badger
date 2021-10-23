@@ -45,6 +45,11 @@ namespace DrawingTool
         ScaleTransform canvasScaleTransform;
 
         private double zoomIncrement = 0.05;
+
+        /// <summary>
+        /// Selected graphic
+        /// </summary>
+        private GraphicViewModel selectedGraphic;
        
         #endregion
 
@@ -86,19 +91,39 @@ namespace DrawingTool
         {
             var canvas = (Canvas)sender;
 
+    
+
             // Left button was pressed --> New line command.
             if(e.LeftButton == MouseButtonState.Pressed)
             {
+                // check for selection
+                if(e.OriginalSource is Shape shape)
+                {
+                    if(shape.DataContext is GraphicViewModel graphic)
+                    {
+                        if (selectedGraphic != null)
+                        {
+                            selectedGraphic.DeSelect();
+                        };
+                        selectedGraphic = graphic;
+                    }
+                }
+
+
                 if (e.OriginalSource is Canvas)
                 {
                     // Deselect
                     foreach(object obj in ((Canvas)sender).Children)
                     {
-                        if(obj is Shape shape)
+                        if(obj is Canvas overlayCanvas)
                         {
-                            if(shape.DataContext is GraphicViewModel graphic)
+                            if(overlayCanvas.DataContext is GraphicViewModel graphic)
                             {
-                                graphic.DeSelect();
+                                if (graphic.IsSelected)
+                                {
+                                    graphic.DeSelect();
+                                    return;
+                                }
                             }
                         }
                     }
@@ -120,22 +145,13 @@ namespace DrawingTool
                         // construct line
                         Line line = new Line();
                         line.IsHitTestVisible = false;
-                        line.Name = "Line" + mainViewModel.StructureExplorer.ActiveStructureClass.Lines.Count.ToString();
-                        line.Stroke = mainViewModel.StructureExplorer.ActiveStructureClass.ColorBrush.Color;
+                        line.Stroke = Brushes.Yellow;
                         line.X1 = point.X;
                         line.Y1 = point.Y;
                         line.X2 = point.X;
                         line.Y2 = point.Y;
                         line.StrokeThickness = 2;
                         pageCanvas.Children.Insert(0, line);
-                        // construct 
-                        Line line1 = new Line();
-                        Ellipse ellipse1 = new Ellipse();
-                        var test = new Tuple<Line, Ellipse>(line1, ellipse1);
-
-   
-
-
                     }
                     else
                     {
@@ -144,7 +160,10 @@ namespace DrawingTool
                         Line line = (Line)pageCanvas.Children[0];
                         line.IsHitTestVisible = true;
                         isFirstPoint = true;
-                        mainViewModel.StructureExplorer.ActiveStructureClass.AddGraphic(new LineViewModel(line.Name, mainViewModel.StructureExplorer.ActiveStructureClass, mainViewModel.CurrentPage, line));
+
+                        pageCanvas.Children.RemoveAt(0);
+                        LineViewModel model = new LineViewModel(pageCanvas, mainViewModel, line);
+                        //mainViewModel.StructureExplorer.ActiveStructureClass.AddGraphic(new LineViewModel(line.Name, mainViewModel.StructureExplorer.ActiveStructureClass, mainViewModel.CurrentPage, line));
                     }
                 }
             }

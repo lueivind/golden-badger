@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\Shapes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\Text.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,9 +127,9 @@
     <Compile Include="ValueConverters\Base\BooleanToCollapsedConverter.cs" />
     <Compile Include="ValueConverters\Base\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModels\Commands\RelayCommand.cs" />
-    <Compile Include="ViewModels\Elements\Graphics\Base\GraphicViewModel.cs" />
+    <Compile Include="ViewModels\Graphics\Base\GraphicViewModel.cs" />
     <Compile Include="ViewModels\FolderViewModel.cs" />
-    <Compile Include="ViewModels\Elements\Graphics\LineViewModel.cs" />
+    <Compile Include="ViewModels\Graphics\LineViewModel.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\StructureClassViewModel.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
