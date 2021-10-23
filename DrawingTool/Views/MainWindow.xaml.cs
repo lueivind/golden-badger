@@ -122,7 +122,7 @@ namespace DrawingTool
             TreeViewItem droppedItem = (TreeViewItem)e.Data.GetData(DataFormats.Serializable);
 
             // get viewmodels
-            if(dropReceiverItem.DataContext.GetType() != typeof(FolderViewModel))           // !!! TO DO: Should not happen --> investigate
+            if (dropReceiverItem.DataContext.GetType() != typeof(FolderViewModel))           // !!! TO DO: Should not happen --> investigate
             {
                 // can't drop to structureviewmodel.
                 return;
@@ -154,7 +154,7 @@ namespace DrawingTool
 
         private void TreeViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if(((TreeViewItem)sender).DataContext.GetType() == typeof(StructureClassViewModel))
+            if (((TreeViewItem)sender).DataContext.GetType() == typeof(StructureClassViewModel))
             {
                 ((StructureClassViewModel)((TreeViewItem)sender).DataContext).MakeActive();
             }
@@ -184,6 +184,11 @@ namespace DrawingTool
 
             // Drop allowed.
             return true;
+        }
+
+        private void StructureExplorerTreeView_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        { 
+            ((TreeView)sender).Focus();
         }
     }
 }

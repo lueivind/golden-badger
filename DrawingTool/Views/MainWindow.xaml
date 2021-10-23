@@ -110,8 +110,8 @@
                 <GridSplitter Grid.Row="1"/>
 
                 <!--Explorer-->
-                <Grid Grid.Row="0" Background="{StaticResource amber-lighten-5-brush}">
-                    <TreeView x:Name="StructureExplorerTreeView" ItemsSource="{Binding StructureExplorer.Children}">
+                <Grid Grid.Row="0">
+                    <TreeView x:Name="StructureExplorerTreeView" ItemsSource="{Binding StructureExplorer.Children}" Background="{StaticResource background-level-1}" MouseLeftButtonDown="StructureExplorerTreeView_MouseLeftButtonDown">
                         <TreeView.ItemContainerStyle>
                             <Style TargetType="{x:Type TreeViewItem}" BasedOn="{StaticResource ExplorerItem}">
                                 <EventSetter Event="TreeViewItem.MouseMove" Handler="TreeViewItem_MouseMove"/>
@@ -127,39 +127,33 @@
                             </Style>
                         </TreeView.ItemContainerStyle>
                         <TreeView.Resources>
-
-                            <!--Explorer TextBox-->
-                            <Style x:Key="ExplorerTextBox" TargetType="{x:Type TextBlock}">
-                                <Setter Property="Margin" Value="5 0"/>
-                            </Style>
-
+                            
                             <!--Folder DataTemplate-->
                             <HierarchicalDataTemplate DataType="{x:Type local:FolderViewModel}" ItemsSource="{Binding Children}">
-                                <HierarchicalDataTemplate.Resources>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ExplorerTextBox}"/>
-                                </HierarchicalDataTemplate.Resources>
                                 <Grid Background="Transparent" Height="{StaticResource StructureExplorerItemHeight}">
                                     <Grid.ContextMenu>
                                         <ContextMenu>
-                                            <MenuItem Header="Add Folder" Command="{Binding AddFolderCommand}"/>
-                                            <MenuItem Header="Add Structure" Command="{Binding AddStructureClassCommand}"/>
+                                            <MenuItem Header="Add New Folder" Command="{Binding AddFolderCommand}"/>
+                                            <MenuItem Header="Add New Structure" Command="{Binding AddStructureClassCommand}"/>
                                             <MenuItem Header="Delete" Command="{Binding DeleteCommand}"/>
+                                            <MenuItem Header="Rename" Command="{Binding RenameCommand}" Visibility="{Binding NameLocked, Converter={local:BooleanToCollapsedConverter}}"/>
                                         </ContextMenu>
                                     </Grid.ContextMenu>
                                     <!-- Header -->
                                     <StackPanel Orientation="Horizontal" Height="20">
                                         <Image Source="/Icons/folder.png"/>
-                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"/>
+                                        <TextBlock Text="{Binding Name}" Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}}"
+                                                   Style="{StaticResource StructureExplorerTextBlock}"/>
+                                        <TextBox Text="{Binding Name}" 
+                                                 Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}, ConverterParameter=True}" 
+                                                 local:FocusBehavior.HasFocus="{Binding Renaming, Mode=TwoWay}"
+                                                 Style="{StaticResource StructureExplorerTextBox}"/>
                                     </StackPanel>
                                 </Grid>
                             </HierarchicalDataTemplate>
 
                             <!--Structure DataTemplate-->
                             <DataTemplate DataType="{x:Type local:StructureClassViewModel}">
-                                <DataTemplate.Resources>
-                                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource ExplorerTextBox}"/>
-                                </DataTemplate.Resources>
-
                                 <Grid Height="{StaticResource StructureExplorerItemHeight}">
                                     <Grid.Style>
                                         <Style TargetType="{x:Type Grid}">
@@ -175,8 +169,8 @@
                                     </Grid.Style>
                                     <Grid.ContextMenu>
                                         <ContextMenu>
+                                            <MenuItem Header="Set as active" Command="{Binding MakeActiveCommand}" IsChecked="{Binding IsActive, Mode=OneWay}"/>
                                             <MenuItem Header="Delete" Command="{Binding DeleteCommand}"/>
-                                            <MenuItem Header="Set As Active Structure Class" Command="{Binding MakeActiveCommand}"/>
                                             <MenuItem Header="Rename" Command="{Binding RenameCommand}"/>
                                         </ContextMenu>
                                     </Grid.ContextMenu>
@@ -190,11 +184,12 @@
                                     <Grid Grid.Column="0">
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="/Icons/wall.png"/>
-                                            <TextBlock Text="{Binding Name}" Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}}" />
+                                            <TextBlock Text="{Binding Name}" Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}}" 
+                                                       Style="{StaticResource StructureExplorerTextBlock}"/>
                                             <TextBox Text="{Binding Name}" 
                                                  Visibility="{Binding Renaming, Converter={local:BooleanToCollapsedConverter}, ConverterParameter=True}" 
                                                  local:FocusBehavior.HasFocus="{Binding Renaming, Mode=TwoWay}"
-                                />
+                                                     Style="{StaticResource StructureExplorerTextBox}"/>
                                         </StackPanel>
                                     </Grid>
 

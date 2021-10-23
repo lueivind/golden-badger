@@ -41,14 +41,6 @@ namespace DrawingTool
             explorer.ActiveStructureClassChanged += Explorer_ActiveStructureClassChanged;
         }
 
-        /// <summary>
-        /// Dummy constructor
-        /// </summary>
-        //public StructureClassViewModel()
-        //{
-
-        //}
-
         #endregion
 
         #region Collections
@@ -225,7 +217,7 @@ namespace DrawingTool
         /// <summary>
         /// Rename structure class.
         /// </summary>
-        private void Rename()
+        public void Rename()
         {
             Renaming = true;
         }

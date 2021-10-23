@@ -5,7 +5,7 @@
 
     <!-- Background -->
     <SolidColorBrush x:Key="background-level-0" Color="{StaticResource blue-grey-darken-4}"></SolidColorBrush>
-    <SolidColorBrush x:Key="background-level-1" Color="{StaticResource blue-grey-darken-2}"></SolidColorBrush>
+    <SolidColorBrush x:Key="background-level-1" Color="{StaticResource blue-grey-darken-3}"></SolidColorBrush>
     <SolidColorBrush x:Key="background-level-2" Color="{StaticResource blue-grey-lighten-2}"></SolidColorBrush>
 
     <!--Foreground-->
@@ -20,9 +20,9 @@
     <SolidColorBrush x:Key="button-border" Color="{StaticResource blue-grey-lighten-1}"></SolidColorBrush>
 
     <!--TreeViewItem-->
-    <SolidColorBrush x:Key="treeviewitem-background-hover" Color="{StaticResource blue-grey-lighten-5}"></SolidColorBrush>
-    <SolidColorBrush x:Key="treeviewitem-background-selected" Color="{StaticResource blue-grey-lighten-4}"></SolidColorBrush>
-    <SolidColorBrush x:Key="treeviewitem-background-active" Color="{StaticResource amber-lighten-2}"></SolidColorBrush>
+    <SolidColorBrush x:Key="treeviewitem-background-hover" Color="{StaticResource blue-grey-darken-2}"></SolidColorBrush>
+    <SolidColorBrush x:Key="treeviewitem-background-selected" Color="{StaticResource blue-grey-darken-1}"></SolidColorBrush>
+    <SolidColorBrush x:Key="treeviewitem-background-active" Color="{StaticResource deep-orange-darken-3}" Opacity="0.75"></SolidColorBrush>
 
 
 

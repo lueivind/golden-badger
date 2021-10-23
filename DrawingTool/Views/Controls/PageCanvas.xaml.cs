@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -83,18 +84,40 @@ namespace DrawingTool
         /// </summary>
         private void Canvas_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            var canvas = (Canvas)sender;
+
             // Left button was pressed --> New line command.
             if(e.LeftButton == MouseButtonState.Pressed)
             {
                 if (e.OriginalSource is Canvas)
                 {
+                    // Deselect
+                    foreach(object obj in ((Canvas)sender).Children)
+                    {
+                        if(obj is Shape shape)
+                        {
+                            if(shape.DataContext is GraphicViewModel graphic)
+                            {
+                                graphic.DeSelect();
+                            }
+                        }
+                    }
+
+
+                    // Draw Line
                     if (isFirstPoint)
-                    { 
+                    {       
+                        // check for active structure class.
                         if (mainViewModel.StructureExplorer.ActiveStructureClass == null)
                             return;
 
+                        // line first point
                         isFirstPoint = false;
+
+                        // get mouse position
                         Point point = e.GetPosition((Canvas)e.OriginalSource);
+                        
+                        // construct line
                         Line line = new Line();
                         line.IsHitTestVisible = false;
                         line.Name = "Line" + mainViewModel.StructureExplorer.ActiveStructureClass.Lines.Count.ToString();
@@ -105,9 +128,19 @@ namespace DrawingTool
                         line.Y2 = point.Y;
                         line.StrokeThickness = 2;
                         pageCanvas.Children.Insert(0, line);
+                        // construct 
+                        Line line1 = new Line();
+                        Ellipse ellipse1 = new Ellipse();
+                        var test = new Tuple<Line, Ellipse>(line1, ellipse1);
+
+   
+
+
                     }
                     else
                     {
+                        // Line second point.
+
                         Line line = (Line)pageCanvas.Children[0];
                         line.IsHitTestVisible = true;
                         isFirstPoint = true;

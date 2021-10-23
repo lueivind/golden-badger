@@ -13,12 +13,14 @@ namespace DrawingTool
         {
             Children = new ObservableCollection<IExplorerItem>();
             var explorer = new FolderViewModel("Structure Explorer", this);
+            explorer.LockName();
             Children.Add(explorer);
 
             // dummy data
             if (dummyData)
             {
                 explorer.AddStructureClass();
+                ((StructureClassViewModel)explorer.Children[0]).Renaming = false;
                 explorer.AddStructureClass();
                 explorer.AddStructureClass();
             }

@@ -19,7 +19,18 @@
         <Setter Property="Foreground" Value="{StaticResource foreground-level-0}"/>
         <Setter Property="FontSize" Value="{StaticResource Regular}"/>
     </Style>
-    
-    <!--Structure Explorer Item Texblock-->
+
+    <!--Structure Explorer Item TextBox-->
+    <Style x:Key="StructureExplorerTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBox}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="{StaticResource Small}"/>
+        <Setter Property="Background" Value="{StaticResource foreground-level-0}"/>
+        <Setter Property="Foreground" Value="{StaticResource background-level-1}"/>
+    </Style>
+    <!--Structure Explorer Item TextBlock-->
+    <Style x:Key="StructureExplorerTextBlock" TargetType="{x:Type TextBlock}" BasedOn="{StaticResource TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="{StaticResource Small}"/>
+    </Style>
 
 </ResourceDictionary>

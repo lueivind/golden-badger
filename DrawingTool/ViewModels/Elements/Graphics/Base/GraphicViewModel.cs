@@ -52,6 +52,24 @@ namespace DrawingTool
         public string Name { get; set; }
 
         /// <summary>
+        /// Shape is selected in canvas.
+        /// </summary>
+        public bool IsSelected
+        {
+            get => isSelected;
+            private set
+            {
+                if (isSelected != value)
+                {
+                    isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
+            }
+        }
+        private bool isSelected;
+
+
+        /// <summary>
         /// Color of this structure class.
         /// </summary>
         public ColorBrush ColorBrush 
@@ -71,9 +89,7 @@ namespace DrawingTool
         /// <summary>
         /// List of colors.
         /// </summary>
-        public ObservableCollection<ColorBrush> Colors { 
-            get; 
-            set; }
+        public ObservableCollection<ColorBrush> Colors { get; set; }
 
         /// <summary>
         /// Graphical element
@@ -101,7 +117,7 @@ namespace DrawingTool
 
         #endregion
 
-        #region Helpers
+        #region Methods
 
         /// <summary>
         /// Go to page where this graphic exist.
@@ -109,6 +125,23 @@ namespace DrawingTool
         private void GoToPage()
         {
             Page.MakeSelfCurrentMake();
+        }
+
+
+        /// <summary>
+        /// Select shape in canvas.
+        /// </summary>
+        public virtual void Select() 
+        {
+            IsSelected = true;
+        }
+
+        /// <summary>
+        /// Deselect shape in canvas.
+        /// </summary>
+        public virtual void DeSelect() 
+        {
+            IsSelected = false;
         }
 
         #endregion

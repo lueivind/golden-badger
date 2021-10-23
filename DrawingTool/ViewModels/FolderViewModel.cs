@@ -24,6 +24,7 @@ namespace DrawingTool
             AddFolderCommand = new RelayCommand(AddFolder);
             AddStructureClassCommand = new RelayCommand(AddStructureClass);
             DeleteCommand = new RelayCommand(DeleteSelf);
+            RenameCommand = new RelayCommand(Rename);
         }
 
         #endregion
@@ -33,7 +34,56 @@ namespace DrawingTool
         /// <summary>
         /// Folder name
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get => name;
+            set
+            {
+                if (name != value)
+                {
+                    if (value.Replace(" ", "") != "") // dont allow whitespace string
+                    {
+                        name = value.Trim(); // trim trailing whitespace
+                        OnPropertyChanged(nameof(Name));
+                    }
+                }
+            }
+        }
+        private string name;
+
+        /// <summary>
+        /// Name is locked, folder cannot be renamed.
+        /// </summary>
+        public bool NameLocked
+        {
+            get => nameLocked;
+            private set
+            {
+                if(nameLocked != value)
+                {
+                    nameLocked = value;
+                    OnPropertyChanged(nameof(NameLocked));
+                }
+            }
+        }
+        private bool nameLocked;
+
+        /// <summary>
+        /// Is renaming.
+        /// </summary>
+        public bool Renaming
+        {
+            get => renaming;
+            set
+            {
+                if (renaming != value)
+                {
+                    renaming = value;
+                    OnPropertyChanged(nameof(Renaming));
+                }
+            }
+        }
+        private bool renaming;
 
         /// <summary>
         /// <see cref="IExplorerItem"/> type
@@ -46,6 +96,14 @@ namespace DrawingTool
         public void DeleteSelf()
         {
             OnDelete();
+        }
+
+        /// <summary>
+        /// Lock folder name
+        /// </summary>
+        public void LockName()
+        {
+            NameLocked = true;
         }
 
         #endregion
@@ -76,6 +134,11 @@ namespace DrawingTool
         /// </summary>
         public ICommand DeleteCommand { get; set; }
 
+        /// <summary>
+        /// Command for renaming structure class.
+        /// </summary>
+        public ICommand RenameCommand { get; set; }
+
         #endregion
 
         #region Methods
@@ -86,6 +149,7 @@ namespace DrawingTool
         public void AddFolder()
         {
             FolderViewModel folder = new FolderViewModel("Folder " + Children.Count.ToString(), explorer);
+            folder.Rename();
             folder.Delete += Child_Delete;
             Children.Add(folder);
         }
@@ -96,6 +160,7 @@ namespace DrawingTool
         public void AddStructureClass()
         {
             StructureClassViewModel structure = new StructureClassViewModel("New Structure Class " + this.Children.Count.ToString(), explorer);
+            structure.Rename();
             structure.Delete += Child_Delete;
             Children.Add(structure);
         }
@@ -117,6 +182,14 @@ namespace DrawingTool
 
             Children.Remove((IExplorerItem)source);
 
+        }
+
+        /// <summary>
+        /// Rename structure class.
+        /// </summary>
+        private void Rename()
+        {
+            Renaming = true;
         }
 
         #endregion

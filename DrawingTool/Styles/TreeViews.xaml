@@ -156,7 +156,7 @@
                                 <Condition Property="IsSelected" Value="true"/>
                                 <Condition Property="IsSelectionActive" Value="false"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="{StaticResource treeviewitem-background-hover}"/>
+                            <Setter Property="Background" Value="{Binding Background, RelativeSource={RelativeSource AncestorType={x:Type Border}}}"/>
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
