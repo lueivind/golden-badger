@@ -24,7 +24,7 @@ namespace DrawingTool
 
         private string fileName;
 
-        private bool devMode = true;
+        private bool devMode = false;
 
         #endregion
 

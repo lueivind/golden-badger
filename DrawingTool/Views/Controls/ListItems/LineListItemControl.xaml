@@ -26,7 +26,6 @@
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <Button Style="{StaticResource ButtonSmall}" Content="Hide" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <Button Style="{StaticResource ButtonSmall}" Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 <Button Style="{StaticResource ButtonSmall}" Content="Go To Page" Command="{Binding GoToPageCommand}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             </StackPanel>
@@ -41,21 +40,7 @@
                             <Setter Property="Margin" Value="2"/>
                         </Style>
                     </StackPanel.Resources>
-                    <TextBlock Text="[ "/>
-                    <TextBlock Text="{Binding Line.X1, StringFormat=N2}"/>
-                    <TextBlock Text=","/>
-                    <TextBlock Text="{Binding Line.Y1, StringFormat=N2}"/>
-                    <TextBlock Text=" ]"/>
-                    <TextBlock Text=" - "/>
-                    <TextBlock Text="[ "/>
-                    <TextBlock Text="{Binding Line.X2, StringFormat=N2}"/>
-                    <TextBlock Text=","/>
-                    <TextBlock Text="{Binding Line.Y2, StringFormat=N2}"/>
-                    <TextBlock Text=" ]"/>
-                    <TextBlock Text=" --> "/>
-                    <TextBlock Text="| Length"/>
-                    <TextBlock Text="{Binding Length, StringFormat=N2}"/>
-                    <TextBlock Text="| Scaled"/>
+                    <TextBlock Text="Length: "/>
                     <TextBlock Text="{Binding Length, StringFormat=N2}"/>
                 </StackPanel>
             </StackPanel>
